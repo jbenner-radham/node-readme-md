@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "lodash.escape": "^4.0.1",
-    "lodash.get": "^4.4.2",
     "md-writer": "^0.2.0"
   },
   "devDependencies": {

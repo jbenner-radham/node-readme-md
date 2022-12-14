@@ -2,10 +2,10 @@
 root: true
 extends: eslint:recommended
 env:
-  es6: true
+  es2022: true
   node: true
 parserOptions:
-  ecmaVersion: 9 # Same as the now deprecated 2018 option, see https://eslint.org/docs/user-guide/configuring#deprecated
+  ecmaVersion: latest
 rules:
   arrow-spacing: error
   block-spacing: error
