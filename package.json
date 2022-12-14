@@ -22,6 +22,7 @@
   "author": "James Benner <james.benner@gmail.com> (http://www.jamesbenner.com/)",
   "main": "lib/index.js",
   "scripts": {
+    "prepare": "husky install",
     "prepublishOnly": "trevor",
     "test": "nyc jasmine"
   },
@@ -33,9 +34,9 @@
   "devDependencies": {
     "common-tags": "^1.8.0",
     "eslint": "^6.5.1",
-    "husky": "^3.0.9",
+    "husky": "^8.0.2",
     "jasmine": "^3.5.0",
-    "lint-staged": "^9.4.2",
+    "lint-staged": "^13.1.0",
     "nyc": "^14.1.1",
     "sort-package-json": "^1.22.1",
     "trevor": "^2.4.0"
