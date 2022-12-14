@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "common-tags": "^1.8.0",
-    "eslint": "^6.5.1",
+    "eslint": "^8.29.0",
     "husky": "^8.0.2",
     "jasmine": "^3.5.0",
     "lint-staged": "^13.1.0",
