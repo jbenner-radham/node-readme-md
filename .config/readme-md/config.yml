@@ -1,4 +1,9 @@
 # Config file for [readme-md-cli](https://www.npmjs.com/package/readme-md-cli).
 ---
+badges:
+  render:
+    - license
+    - node.js
+    - npm
 see-also:
   readme-md-cli @ npm: https://www.npmjs.com/package/readme-md-cli
