@@ -22,6 +22,8 @@
   "author": "James Benner <james.benner@gmail.com> (http://www.jamesbenner.com/)",
   "main": "lib/index.js",
   "scripts": {
+    "lint": "eslint . --ext .js --ignore-path .gitignore",
+    "lint:fix": "yarn lint --fix",
     "prepare": "husky install",
     "prepublishOnly": "trevor",
     "test": "nyc jasmine"
