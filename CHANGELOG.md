@@ -9,9 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ------------
 ### Changed
 - The minimum required [Node.js](https://nodejs.org/) is now v16.
-
-### Security
-- Upgraded vulnerable dependencies.
+- Convert the package to ES Modules from CommonJS.
 
 [0.8.0] - 2018-01-21
 --------------------

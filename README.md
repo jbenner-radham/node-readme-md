@@ -10,26 +10,24 @@ A `README.md` generator library.
 Install
 -------
 ```sh
-$ yarn add readme-md # Or alternatively: `npm install --save readme-md`
+yarn add readme-md # Or alternatively: `npm install --save readme-md`
 ```
 
 Usage
 -----
-````js
-'use strict';
+```js
+import readme from 'readme-md';
 
-const readme = require('readme-md');
-
-const pkg = {name: 'my-awesome-package'};
+const pkg = { name: 'my-awesome-package' };
 const additionalSections = [
     {
         position: 'after:Install',
         title: 'Usage',
-        body: "```js\nrequire('my-awesome-package')({awesome: 'parameters'});\n```"
+        body: "```js\nrequire('my-awesome-package')({ awesome: 'parameters' });\n```"
     }
 ];
 
-readme({pkg, additionalSections});
+readme({ pkg, additionalSections });
 // > my-awesome-package
 // > ==================
 // > _To be documented._
@@ -43,7 +41,7 @@ readme({pkg, additionalSections});
 // > Usage
 // > -----
 // > ```js
-// > require('my-awesome-package')({awesome: 'parameters'});
+// > require('my-awesome-package')({ awesome: 'parameters' });
 // > ```
 // >
 // > Testing
@@ -53,12 +51,12 @@ readme({pkg, additionalSections});
 // > License
 // > -------
 // > _To be documented._
-````
+```
 
 Testing
 -------
 ```sh
-$ yarn test # Or alternatively: `npm test`
+yarn test # Or alternatively: `npm test`
 ```
 
 See Also

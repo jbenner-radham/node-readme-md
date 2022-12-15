@@ -1,8 +1,7 @@
-'use strict';
+import readme from '../lib/index.js';
+import { stripIndents } from 'common-tags';
 
 const any = jasmine.any;
-const readme = require('../');
-const { stripIndents } = require('common-tags');
 
 describe('readme-md', function () {
     beforeEach(function () {
