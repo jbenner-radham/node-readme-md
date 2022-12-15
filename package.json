@@ -25,7 +25,6 @@
     "lint": "eslint . --ext .js --ignore-path .gitignore",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky install",
-    "prepublishOnly": "trevor",
     "test": "nyc jasmine"
   },
   "dependencies": {
@@ -39,8 +38,7 @@
     "jasmine": "^3.99.0",
     "lint-staged": "^13.1.0",
     "nyc": "^15.1.0",
-    "sort-package-json": "^2.1.0",
-    "trevor": "^2.4.0"
+    "sort-package-json": "^2.1.0"
   },
   "engines": {
     "node": ">=16"
