@@ -35,7 +35,7 @@
     "common-tags": "^1.8.2",
     "eslint": "^8.29.0",
     "husky": "^8.0.2",
-    "jasmine": "^3.99.0",
+    "jasmine": "^4.5.0",
     "lint-staged": "^13.1.0",
     "nyc": "^15.1.0",
     "sort-package-json": "^2.1.0"
