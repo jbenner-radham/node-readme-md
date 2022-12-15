@@ -33,7 +33,7 @@
     "md-writer": "^0.2.0"
   },
   "devDependencies": {
-    "common-tags": "^1.8.0",
+    "common-tags": "^1.8.2",
     "eslint": "^8.29.0",
     "husky": "^8.0.2",
     "jasmine": "^3.99.0",
