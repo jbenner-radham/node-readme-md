@@ -42,6 +42,7 @@
     "sort-package-json": "^2.1.0"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=16",
+    "yarn": "1.x"
   }
 }
