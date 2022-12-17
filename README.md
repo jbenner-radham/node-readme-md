@@ -35,13 +35,15 @@ readme({ pkg, additionalSections });
 // > Install
 // > -------
 // > ```sh
-// > $ npm install --save my-awesome-package
+// > npm install my-awesome-package
 // > ```
 // >
 // > Usage
 // > -----
 // > ```js
-// > require('my-awesome-package')({ awesome: 'parameters' });
+// > import myAwesomePackage from 'my-awesome-package';
+// >
+// > myAwesomePackage({ awesome: 'parameters' });
 // > ```
 // >
 // > Testing
