@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased]
 ------------
+### Added
+- Added additional examples to the Usage section of the readme.
+
 ### Changed
 - Generated fenced code blocks for shell script (_e.g._, the Install and Testing sections) no longer have a dollar sign prefix.
 - For packages which are MIT licensed the value "(Expat)" is no longer suffixed in the generated License section.
