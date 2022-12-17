@@ -76,7 +76,7 @@ See Also
 
 License
 -------
-The MIT License (Expat). See the [license file](LICENSE) for details.
+The MIT License. See the [license file](LICENSE) for details.
 
 [CI BADGE]: https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml/badge.svg
 [CI PAGE]: https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml
