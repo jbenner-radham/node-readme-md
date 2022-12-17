@@ -18,7 +18,14 @@ Usage
 ```js
 import readme from 'readme-md';
 
-const pkg = { name: 'my-awesome-package' };
+const pkg = {
+    name: 'my-awesome-package',
+    description: 'An awesome package.',
+    license: 'MIT',
+    scripts: {
+        test: 'jest'
+    }
+};
 const additionalSections = [
     {
         position: 'after:Install',
@@ -30,7 +37,7 @@ const additionalSections = [
 readme({ pkg, additionalSections });
 // > my-awesome-package
 // > ==================
-// > _To be documented._
+// > An awesome package.
 // >
 // > Install
 // > -------
@@ -48,11 +55,13 @@ readme({ pkg, additionalSections });
 // >
 // > Testing
 // > -------
-// > _To be documented._
+// > ```sh
+// > npm test
+// > ```
 // >
 // > License
 // > -------
-// > _To be documented._
+// > The MIT License. See the license file for details.
 ```
 
 Testing

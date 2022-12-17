@@ -407,7 +407,7 @@ describe('readme-md', function () {
 
             License
             -------
-            The MIT License (Expat). See the license file for details.
+            The MIT License. See the license file for details.
         `;
 
         expect(readme(parameters)).toEqual(fixture);
@@ -438,7 +438,7 @@ describe('readme-md', function () {
 
             License
             -------
-            The MIT License (Expat). See the [license file](LICENSE) for details.
+            The MIT License. See the [license file](LICENSE) for details.
         `;
 
         expect(readme(parameters)).toEqual(fixture);
