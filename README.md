@@ -30,7 +30,7 @@ const additionalSections = [
     {
         position: 'after:Install',
         title: 'Usage',
-        body: "```js\nrequire('my-awesome-package')({ awesome: 'parameters' });\n```"
+        body: "```js\nimport myAwesomePackage from 'my-awesome-package';\n\nmyAwesomePackage({ awesome: 'parameters' });\n```"
     }
 ];
 
