@@ -22,6 +22,9 @@
   "author": "James Benner <james.benner@gmail.com> (https://www.jamesbenner.com/)",
   "type": "module",
   "exports": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "lint": "eslint . --ext .js --ignore-path .gitignore",
     "lint:fix": "yarn lint --fix",
