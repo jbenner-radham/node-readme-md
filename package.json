@@ -29,7 +29,7 @@
     "lint": "eslint . --ext .js --ignore-path .gitignore",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky install",
-    "test": "c8 jasmine"
+    "test": "c8 jasmine --config=test/support/jasmine.json"
   },
   "dependencies": {
     "lodash.escape": "^4.0.1",
