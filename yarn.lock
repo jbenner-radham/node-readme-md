@@ -902,9 +902,10 @@ make-dir@^3.0.0:
   dependencies:
     semver "^6.0.0"
 
-md-writer@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/md-writer/-/md-writer-0.2.0.tgz"
+md-writer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/md-writer/-/md-writer-1.0.0.tgz#c7ff69fc50043bedce3f256edb5d6b903e6c0010"
+  integrity sha512-bmX7edaMIhabc70FogTrDEApwrDp1Rpg9WpUswJS8D5bYa1k7Xf4pWo0HDPi3BPQozuW0/caWf7EsZL/2hu6tQ==
 
 merge-stream@^2.0.0:
   version "2.0.0"

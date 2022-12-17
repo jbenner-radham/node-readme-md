@@ -49,7 +49,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ npm install awesome-package
+            npm install awesome-package
             \`\`\`
 
             Testing
@@ -78,7 +78,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ npm install --global awesome-package
+            npm install --global awesome-package
             \`\`\`
 
             Testing
@@ -109,7 +109,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
+            yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
             \`\`\`
 
             Testing
@@ -141,7 +141,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ yarn global add awesome-package # Or alternatively: \`npm install --global awesome-package\`
+            yarn global add awesome-package # Or alternatively: \`npm install --global awesome-package\`
             \`\`\`
 
             Testing
@@ -174,13 +174,13 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ npm install awesome-package
+            npm install awesome-package
             \`\`\`
 
             Testing
             -------
             \`\`\`sh
-            $ npm test
+            npm test
             \`\`\`
 
             License
@@ -211,13 +211,13 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
+            yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
             \`\`\`
 
             Testing
             -------
             \`\`\`sh
-            $ yarn test # Or alternatively: \`npm test\`
+            yarn test # Or alternatively: \`npm test\`
             \`\`\`
 
             License
@@ -254,7 +254,7 @@ describe('readme-md', function () {
             Install
             -------
             \`\`\`sh
-            $ npm install awesome-package
+            npm install awesome-package
             \`\`\`
 
             Usage
