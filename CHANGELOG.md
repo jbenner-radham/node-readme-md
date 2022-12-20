@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[Unreleased]
+------------
+### Added
+- Added `parameters.config['prefer-dev']` argument that will indicate in the install section to install the package as a dev dependency. This option takes precedence over the `parameters.pkg.preferGlobal` setting if both are set to true.
+
 [0.11.0] - 2022-12-18
 ---------------------
 ### Changed

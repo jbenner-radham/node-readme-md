@@ -93,6 +93,77 @@ describe('readme-md', function () {
         expect(readme(parameters)).toEqual(fixture);
     });
 
+    it(`generates a titled README with placeholders and a save dev install
+        example if passed an object with \`pkg.name\` and
+        \`config['prefer-dev']\` properties`,
+    function () {
+        const parameters = {
+            config: {
+                'prefer-dev': true
+            },
+            pkg: {
+                name: 'awesome-package'
+            }
+        };
+        const expected = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            npm install --save-dev awesome-package
+            \`\`\`
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(parameters)).toEqual(expected);
+    });
+
+    it(`generates a titled README with placeholders and a save dev install
+        example if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
+       \`config['prefer-dev']\` properties`,
+    function () {
+        const parameters = {
+            config: {
+                'prefer-dev': true
+            },
+            pkg: {
+                name: 'awesome-package',
+                preferGlobal: true
+            }
+        };
+        const expected = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            npm install --save-dev awesome-package
+            \`\`\`
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+    `;
+
+        expect(readme(parameters)).toEqual(expected);
+    });
+
     it(`generates a titled README with variant placeholders if passed an object
         with \`pkg.name\` and \`config['prefer-yarn']\` properties`,
     function () {
