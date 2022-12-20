@@ -1,7 +1,9 @@
 # Config file for [readme-md-cli](https://www.npmjs.com/package/readme-md-cli).
 ---
 badges:
+  style: flat-square
   render:
+    - github-actions
     - license
     - node.js
     - npm
