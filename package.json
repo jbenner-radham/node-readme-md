@@ -21,7 +21,12 @@
   "license": "MIT",
   "author": "James Benner <james.benner@gmail.com> (https://www.jamesbenner.com/)",
   "type": "module",
-  "exports": "./lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
   "files": [
     "lib"
   ],
@@ -33,7 +38,8 @@
   },
   "dependencies": {
     "lodash.escape": "^4.0.1",
-    "md-writer": "^1.0.0"
+    "md-writer": "^1.0.0",
+    "type-fest": "^3.4.0"
   },
   "devDependencies": {
     "c8": "^7.12.0",
