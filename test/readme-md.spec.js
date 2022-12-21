@@ -94,16 +94,14 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with placeholders and a save dev install
-        example if passed an object with \`pkg.name\` and
-        \`config['prefer-dev']\` properties`,
+        example if passed an object with \`pkg.name\` and \`preferDev\`
+        properties`,
     function () {
         const parameters = {
-            config: {
-                'prefer-dev': true
-            },
             pkg: {
                 name: 'awesome-package'
-            }
+            },
+            preferDev: true
         };
         const expected = stripIndents`
             awesome-package
@@ -130,16 +128,14 @@ describe('readme-md', function () {
 
     it(`generates a titled README with placeholders and a save dev install
         example if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
-       \`config['prefer-dev']\` properties`,
+       \`preferDev\` properties`,
     function () {
         const parameters = {
-            config: {
-                'prefer-dev': true
-            },
             pkg: {
                 name: 'awesome-package',
                 preferGlobal: true
-            }
+            },
+            preferDev: true
         };
         const expected = stripIndents`
             awesome-package

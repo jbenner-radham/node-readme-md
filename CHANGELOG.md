@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased]
 ### Changed
+- The `parameters.config['prefer-dev']` option is now `parameters.preferDev`.
 - The `parameters.config['prefer-yarn']` option is now `parameters.preferYarn`.
 
 [0.12.0] - 2022-12-21
