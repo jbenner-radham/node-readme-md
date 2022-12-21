@@ -66,8 +66,7 @@ describe('readme-md', function () {
 
     it(`generates a titled README with placeholders and a global install example
         if passed an object with \`pkg.name\` and \`pkg.preferGlobal\`
-        properties`,
-    function () {
+        properties`, function () {
         const parameters = { pkg: { name: 'awesome-package', preferGlobal: true } };
 
         const fixture = stripIndents`
@@ -95,8 +94,7 @@ describe('readme-md', function () {
 
     it(`generates a titled README with placeholders and a save dev install
         example if passed an object with \`pkg.name\` and \`preferDev\`
-        properties`,
-    function () {
+        properties`, function () {
         const parameters = {
             pkg: {
                 name: 'awesome-package'
@@ -128,8 +126,7 @@ describe('readme-md', function () {
 
     it(`generates a titled README with placeholders and a save dev install
         example if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
-       \`preferDev\` properties`,
-    function () {
+       \`preferDev\` properties`, function () {
         const parameters = {
             pkg: {
                 name: 'awesome-package',
@@ -161,8 +158,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders if passed an object
-        with \`pkg.name\` and \`preferYarn\` properties`,
-    function () {
+        with \`pkg.name\` and \`preferYarn\` properties`, function () {
         const parameters = {
             pkg: { name: 'awesome-package' },
             preferYarn: true
@@ -193,8 +189,7 @@ describe('readme-md', function () {
 
     it(`generates a titled README with variant placeholders and a global install
         if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
-        \`preferYarn\` properties`,
-    function () {
+        \`preferYarn\` properties`, function () {
         const parameters = {
             pkg: { name: 'awesome-package', preferGlobal: true },
             preferYarn: true
@@ -224,8 +219,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with placeholders and a testing command if
-        passed an object with \`pkg.name\` and \`pkg.scripts.test\` properties`,
-    function () {
+        passed an object with \`pkg.name\` and \`pkg.scripts.test\` properties`, function () {
         const parameters = {
             pkg: {
                 name: 'awesome-package',
@@ -260,8 +254,7 @@ describe('readme-md', function () {
 
     it(`generates a titled README with variant placeholders and testing command
         if passed an object with \`pkg.name\`, \`pkg.scripts.test\`, and
-        \`preferYarn\` properties`,
-    function () {
+        \`preferYarn\` properties`, function () {
         const parameters = {
             pkg: {
                 name: 'awesome-package',
@@ -296,8 +289,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with a "Usage" section if passed \`pkg.name\`
-        and an appropriate \`additionalSections\` argument`,
-    function () {
+        and an appropriate \`additionalSections\` argument`, function () {
         const parameters = {
             additionalSections: [
                 {
@@ -343,8 +335,7 @@ describe('readme-md', function () {
     });
 
     it(`adds an "See Also" section when passed an appropriate
-        \`additionalSections\` argument using a numeric position`,
-    function () {
+        \`additionalSections\` argument using a numeric position`, function () {
         const parameters = {
             additionalSections: [
                 {
@@ -381,8 +372,7 @@ describe('readme-md', function () {
     });
 
     it(`adds an "See Also" section when passed an appropriate
-        \`additionalSections\` argument using an "after" position directive`,
-    function () {
+        \`additionalSections\` argument using an "after" position directive`, function () {
         const parameters = {
             additionalSections: [
                 {
@@ -419,8 +409,7 @@ describe('readme-md', function () {
     });
 
     it(`adds an "See Also" section when passed an appropriate
-        \`additionalSections\` argument using a "before" position directive`,
-    function () {
+        \`additionalSections\` argument using a "before" position directive`, function () {
         const parameters = {
             additionalSections: [
                 {

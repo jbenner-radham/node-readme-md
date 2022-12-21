@@ -7,6 +7,8 @@ env:
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+plugins:
+  - prettier
 rules:
   arrow-spacing: error
   block-spacing: error
@@ -59,16 +61,11 @@ rules:
     - error
     - destructuring: any
       ignoreReadBeforeAssign: false
+  prettier/prettier: error
   quote-props:
     - error
     - as-needed
-  quotes:
-    - error
-    - single
-    - allowTemplateLiterals: true
-  semi:
-    - error
-    - always
+  semi: off
   sort-keys:
     - error
     - asc
