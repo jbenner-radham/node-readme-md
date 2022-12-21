@@ -165,11 +165,11 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders if passed an object
-        with \`pkg.name\` and \`config['prefer-yarn']\` properties`,
+        with \`pkg.name\` and \`preferYarn\` properties`,
     function () {
         const parameters = {
-            config: { 'prefer-yarn': true },
-            pkg: { name: 'awesome-package' }
+            pkg: { name: 'awesome-package' },
+            preferYarn: true
         };
 
         const fixture = stripIndents`
@@ -197,11 +197,11 @@ describe('readme-md', function () {
 
     it(`generates a titled README with variant placeholders and a global install
         if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
-        \`config['prefer-yarn']\` properties`,
+        \`preferYarn\` properties`,
     function () {
         const parameters = {
-            config: { 'prefer-yarn': true },
-            pkg: { name: 'awesome-package', preferGlobal: true }
+            pkg: { name: 'awesome-package', preferGlobal: true },
+            preferYarn: true
         };
 
         const fixture = stripIndents`
@@ -264,14 +264,14 @@ describe('readme-md', function () {
 
     it(`generates a titled README with variant placeholders and testing command
         if passed an object with \`pkg.name\`, \`pkg.scripts.test\`, and
-        \`config['prefer-yarn']\` properties`,
+        \`preferYarn\` properties`,
     function () {
         const parameters = {
-            config: { 'prefer-yarn': true },
             pkg: {
                 name: 'awesome-package',
                 scripts: { test: 'jasmine' }
-            }
+            },
+            preferYarn: true
         };
 
         const fixture = stripIndents`
