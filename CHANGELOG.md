@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 [Unreleased]
+------------
+### Added
+- Add [TypeScript](https://www.typescriptlang.org/) types.
+
 ### Changed
 - The `parameters.config['prefer-dev']` option is now `parameters.preferDev`.
 - The `parameters.config['prefer-yarn']` option is now `parameters.preferYarn`.
