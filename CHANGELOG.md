@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - The `parameters.config['prefer-dev']` option is now `parameters.preferDev`.
 - The `parameters.config['prefer-yarn']` option is now `parameters.preferYarn`.
+- The function signature of the `readme()` function has been changed from `readme(parameters)` to `readme(config)` (_e.g._, `parameters.preferDev` would now be `config.preferDev` in docs.)
 
 [0.12.0] - 2022-12-21
 ---------------------
