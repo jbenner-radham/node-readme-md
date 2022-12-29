@@ -103,4 +103,4 @@ export interface ReadmeConfig {
     preferYarn?: boolean;
 }
 
-export default function readme(config: ReadmeConfig): string;
+export default function readme(config?: ReadmeConfig): string;
