@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 [Unreleased]
 ------------
 ### Changed
-- Updated the "Usage" section of the `README.md` file.
+- Updated the "Usage" section of the `README.md` file to note that this is a pure ESM package.
 
 ### Fixed
 - Fixed compare link for version [0.13.1](0131---2022-12-28).
