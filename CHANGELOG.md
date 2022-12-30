@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Updated the "Usage" section of the `README.md` file.
 
+### Fixed
+- Fixed compare link for version [0.13.1](0131---2022-12-28).
+
 [0.13.1] - 2022-12-28
 ---------------------
 ### Fixed
@@ -98,7 +101,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Initial release.
 
 [Unreleased]: https://github.com/jbenner-radham/node-readme-md/compare/v0.13.1...HEAD
-[Unreleased]: https://github.com/jbenner-radham/node-readme-md/compare/v0.13.0...v0.13.1
+[0.13.1]: https://github.com/jbenner-radham/node-readme-md/compare/v0.13.0...v0.13.1
 [0.13.0]: https://github.com/jbenner-radham/node-readme-md/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/jbenner-radham/node-readme-md/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/jbenner-radham/node-readme-md/compare/v0.10.0...v0.11.0
