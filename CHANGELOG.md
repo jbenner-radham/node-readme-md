@@ -5,8 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-[Unreleased]
-------------
+[0.14.0] - 2024-09-06
+---------------------
 ### Added
 - The `readme` function now generates a "Usage" section.
 - Warnings are now logged to `stderr`.
@@ -107,7 +107,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Initial release.
 
-[Unreleased]: https://github.com/jbenner-radham/node-readme-md/compare/v0.13.1...HEAD
+[Unreleased]: https://github.com/jbenner-radham/node-readme-md/compare/v0.14.0...HEAD
+[0.14.0]: https://github.com/jbenner-radham/node-readme-md/compare/v0.13.1...v0.14.0
 [0.13.1]: https://github.com/jbenner-radham/node-readme-md/compare/v0.13.0...v0.13.1
 [0.13.0]: https://github.com/jbenner-radham/node-readme-md/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/jbenner-radham/node-readme-md/compare/v0.11.0...v0.12.0
