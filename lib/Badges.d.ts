@@ -1,4 +1,4 @@
-import type { Badge } from './index.js';
+import type { Badge } from './index.d.ts';
 
 export default class Badges extends Array<Badge> {
     /**

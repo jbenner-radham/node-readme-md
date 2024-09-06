@@ -2,16 +2,23 @@ Changelog
 =========
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 [Unreleased]
 ------------
+### Added
+- The `readme` function now generates a "Usage" section.
+- Warnings are now logged to `stderr`.
+
 ### Changed
+- Updated the "Keep a Changelog" link in this changelog.
 - Updated the "Usage" section of the `README.md` file to note that this is a pure ESM package.
 
 ### Fixed
-- Fixed compare link for version [0.13.1](0131---2022-12-28).
+- Fixed some types in both TypeScript and JSDoc.
+- All type definitions are now properly exported for this package.
+- Fixed compare link for version [0.13.1](#0131---2022-12-28) in this changelog.
 
 [0.13.1] - 2022-12-28
 ---------------------

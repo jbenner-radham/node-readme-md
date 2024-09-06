@@ -26,6 +26,10 @@ describe('readme-md', function () {
             -------
             _To be documented._
 
+            Usage
+            -----
+            _To be documented._
+
             Testing
             -------
             _To be documented._
@@ -50,6 +54,12 @@ describe('readme-md', function () {
             -------
             \`\`\`sh
             npm install awesome-package
+            \`\`\`
+
+            Usage
+            -----
+            \`\`\`js
+            import awesomePackage from 'awesome-package';
             \`\`\`
 
             Testing
@@ -79,6 +89,10 @@ describe('readme-md', function () {
             \`\`\`sh
             npm install --global awesome-package
             \`\`\`
+
+            Usage
+            -----
+            _To be documented._
 
             Testing
             -------
@@ -110,6 +124,12 @@ describe('readme-md', function () {
             -------
             \`\`\`sh
             npm install --save-dev awesome-package
+            \`\`\`
+
+            Usage
+            -----
+            \`\`\`js
+            import awesomePackage from 'awesome-package';
             \`\`\`
 
             Testing
@@ -145,6 +165,12 @@ describe('readme-md', function () {
             npm install --save-dev awesome-package
             \`\`\`
 
+            Usage
+            -----
+            \`\`\`js
+            import awesomePackage from 'awesome-package';
+            \`\`\`
+
             Testing
             -------
             _To be documented._
@@ -173,6 +199,12 @@ describe('readme-md', function () {
             -------
             \`\`\`sh
             yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
+            \`\`\`
+
+            Usage
+            -----
+            \`\`\`js
+            import awesomePackage from 'awesome-package';
             \`\`\`
 
             Testing
@@ -206,6 +238,10 @@ describe('readme-md', function () {
             yarn global add awesome-package # Or alternatively: \`npm install --global awesome-package\`
             \`\`\`
 
+            Usage
+            -----
+            _To be documented._
+
             Testing
             -------
             _To be documented._
@@ -236,6 +272,12 @@ describe('readme-md', function () {
             -------
             \`\`\`sh
             npm install awesome-package
+            \`\`\`
+
+            Usage
+            -----
+            \`\`\`js
+            import awesomePackage from 'awesome-package';
             \`\`\`
 
             Testing
@@ -274,57 +316,17 @@ describe('readme-md', function () {
             yarn add awesome-package # Or alternatively: \`npm install awesome-package\`
             \`\`\`
 
+            Usage
+            -----
+            \`\`\`js
+            import awesomePackage from 'awesome-package';
+            \`\`\`
+
             Testing
             -------
             \`\`\`sh
             yarn test # Or alternatively: \`npm test\`
             \`\`\`
-
-            License
-            -------
-            _To be documented._
-        `;
-
-        expect(readme(parameters)).toEqual(fixture);
-    });
-
-    it(`generates a titled README with a "Usage" section if passed \`pkg.name\`
-        and an appropriate \`additionalSections\` argument`, function () {
-        const parameters = {
-            additionalSections: [
-                {
-                    body: stripIndents`
-                        \`\`\`js
-                        require('awesome-package')('Go go go!');
-                        \`\`\`
-                    `,
-                    position: 'after:Install',
-                    title: 'Usage'
-                }
-            ],
-            pkg: { name: 'awesome-package' }
-        };
-
-        const fixture = stripIndents`
-            awesome-package
-            ===============
-            _To be documented._
-
-            Install
-            -------
-            \`\`\`sh
-            npm install awesome-package
-            \`\`\`
-
-            Usage
-            -----
-            \`\`\`js
-            require('awesome-package')('Go go go!');
-            \`\`\`
-
-            Testing
-            -------
-            _To be documented._
 
             License
             -------
@@ -353,6 +355,10 @@ describe('readme-md', function () {
 
             Install
             -------
+            _To be documented._
+
+            Usage
+            -----
             _To be documented._
 
             Testing
@@ -392,6 +398,10 @@ describe('readme-md', function () {
             -------
             _To be documented._
 
+            Usage
+            -----
+            _To be documented._
+
             Testing
             -------
             _To be documented._
@@ -429,6 +439,10 @@ describe('readme-md', function () {
             -------
             _To be documented._
 
+            Usage
+            -----
+            _To be documented._
+
             Testing
             -------
             _To be documented._
@@ -455,6 +469,10 @@ describe('readme-md', function () {
 
             Install
             -------
+            _To be documented._
+
+            Usage
+            -----
             _To be documented._
 
             Testing
@@ -488,6 +506,10 @@ describe('readme-md', function () {
             -------
             _To be documented._
 
+            Usage
+            -----
+            _To be documented._
+
             Testing
             -------
             _To be documented._
@@ -510,6 +532,10 @@ describe('readme-md', function () {
 
             Install
             -------
+            _To be documented._
+
+            Usage
+            -----
             _To be documented._
 
             Testing

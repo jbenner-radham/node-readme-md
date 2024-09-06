@@ -1,5 +1,12 @@
 import type { PackageJson } from 'type-fest';
 
+export type { default as Badges } from './Badges.d.ts';
+export type { PLACEHOLDER } from './constants.d.ts';
+export type { default as getPackageBasename } from './get-package-basename.d.ts';
+export type { default as licenseBody } from './license-body.d.ts';
+export type { default as linkifyLicense } from './linkify-license.d.ts';
+export type { default as ReadmeSections, ReadmeSection } from './ReadmeSections.d.ts';
+
 /**
  * The badge style types.
  *

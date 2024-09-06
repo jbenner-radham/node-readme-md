@@ -6,6 +6,7 @@
     "commonmark",
     "docs",
     "documentation",
+    "generator",
     "markdown",
     "md",
     "readme"
@@ -41,7 +42,7 @@
     "test": "c8 jasmine --config=test/support/jasmine.json"
   },
   "dependencies": {
-    "lodash.escape": "^4.0.1",
+    "camelcase": "^7.0.1",
     "md-writer": "^1.1.0",
     "type-fest": "^3.5.0"
   },

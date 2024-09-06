@@ -9,13 +9,13 @@ A `README.md` generator library.
 
 Install
 -------
-```sh
-yarn add readme-md # Or alternatively: `npm install --save readme-md`
+```shell
+yarn add readme-md # Or alternatively: `npm install readme-md`
 ```
 
 Usage
 -----
-```js
+```javascript
 import readme from 'readme-md';
 
 const pkg = {
@@ -28,9 +28,9 @@ const pkg = {
 };
 const additionalSections = [
     {
-        position: 'after:Install',
-        title: 'Usage',
-        body: "```js\nimport myAwesomePackage from 'my-awesome-package';\n\nmyAwesomePackage({ awesome: 'parameters' });\n```"
+        position: 'before:Install',
+        title: 'Greetings',
+        body: 'Hello world!'
     }
 ];
 
@@ -39,23 +39,25 @@ readme({ pkg, additionalSections });
 // > ==================
 // > An awesome package.
 // >
+// > Greetings
+// > ---------
+// > Hello world!
+// >
 // > Install
 // > -------
-// > ```sh
+// > ```shell
 // > npm install my-awesome-package
 // > ```
 // >
 // > Usage
 // > -----
-// > ```js
+// > ```javascript
 // > import myAwesomePackage from 'my-awesome-package';
-// >
-// > myAwesomePackage({ awesome: 'parameters' });
 // > ```
 // >
 // > Testing
 // > -------
-// > ```sh
+// > ```shell
 // > npm test
 // > ```
 // >
@@ -68,7 +70,7 @@ readme({ pkg, additionalSections });
 
 Testing
 -------
-```sh
+```shell
 yarn test # Or alternatively: `npm test`
 ```
 
