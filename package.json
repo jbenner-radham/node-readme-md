@@ -61,7 +61,5 @@
     "node": ">=16",
     "yarn": "1.x"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  }
+  "registry": "https://registry.npmjs.org/"
 }
