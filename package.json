@@ -60,6 +60,5 @@
   "engines": {
     "node": ">=16",
     "yarn": "1.x"
-  },
-  "registry": "https://registry.npmjs.org/"
+  }
 }
