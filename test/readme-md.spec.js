@@ -5,7 +5,7 @@ const any = jasmine.any;
 
 describe('readme-md', function () {
     beforeEach(function () {
-        this.parameters = {
+        this.config = {
             pkg: {
                 name: 'readme-md'
             }
@@ -43,7 +43,44 @@ describe('readme-md', function () {
     });
 
     it('generates a titled README with placeholders if passed an object with only a `pkg.name` property', function () {
-        const parameters = { pkg: { name: 'awesome-package' } };
+        const config = { pkg: { name: 'awesome-package' } };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            npm install awesome-package
+            \`\`\`
+
+            Usage
+            -----
+            \`\`\`js
+            const awesomePackage = require('awesome-package');
+            \`\`\`
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(config)).toEqual(fixture);
+    });
+
+    it('generates a titled README with placeholders and an `import` statement in the "Usage" section', function () {
+        const config = {
+            pkg: {
+                name: 'awesome-package',
+                type: 'module'
+            }
+        };
 
         const fixture = stripIndents`
             awesome-package
@@ -71,13 +108,13 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`generates a titled README with placeholders and a global install example
         if passed an object with \`pkg.name\` and \`pkg.preferGlobal\`
         properties`, function () {
-        const parameters = { pkg: { name: 'awesome-package', preferGlobal: true } };
+        const config = { pkg: { name: 'awesome-package', preferGlobal: true } };
 
         const fixture = stripIndents`
             awesome-package
@@ -103,13 +140,13 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`generates a titled README with placeholders and a save dev install
         example if passed an object with \`pkg.name\` and \`preferDev\`
         properties`, function () {
-        const parameters = {
+        const config = {
             pkg: {
                 name: 'awesome-package'
             },
@@ -129,7 +166,7 @@ describe('readme-md', function () {
             Usage
             -----
             \`\`\`js
-            import awesomePackage from 'awesome-package';
+            const awesomePackage = require('awesome-package');
             \`\`\`
 
             Testing
@@ -141,13 +178,13 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(expected);
+        expect(readme(config)).toEqual(expected);
     });
 
     it(`generates a titled README with placeholders and a save dev install
         example if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
        \`preferDev\` properties`, function () {
-        const parameters = {
+        const config = {
             pkg: {
                 name: 'awesome-package',
                 preferGlobal: true
@@ -168,7 +205,7 @@ describe('readme-md', function () {
             Usage
             -----
             \`\`\`js
-            import awesomePackage from 'awesome-package';
+            const awesomePackage = require('awesome-package');
             \`\`\`
 
             Testing
@@ -180,12 +217,12 @@ describe('readme-md', function () {
             _To be documented._
     `;
 
-        expect(readme(parameters)).toEqual(expected);
+        expect(readme(config)).toEqual(expected);
     });
 
     it(`generates a titled README with variant placeholders if passed an object
         with \`pkg.name\` and \`preferYarn\` properties`, function () {
-        const parameters = {
+        const config = {
             pkg: { name: 'awesome-package' },
             preferYarn: true
         };
@@ -204,7 +241,7 @@ describe('readme-md', function () {
             Usage
             -----
             \`\`\`js
-            import awesomePackage from 'awesome-package';
+            const awesomePackage = require('awesome-package');
             \`\`\`
 
             Testing
@@ -216,13 +253,13 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`generates a titled README with variant placeholders and a global install
         if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
         \`preferYarn\` properties`, function () {
-        const parameters = {
+        const config = {
             pkg: { name: 'awesome-package', preferGlobal: true },
             preferYarn: true
         };
@@ -251,12 +288,12 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`generates a titled README with placeholders and a testing command if
         passed an object with \`pkg.name\` and \`pkg.scripts.test\` properties`, function () {
-        const parameters = {
+        const config = {
             pkg: {
                 name: 'awesome-package',
                 scripts: { test: 'jasmine' }
@@ -277,7 +314,7 @@ describe('readme-md', function () {
             Usage
             -----
             \`\`\`js
-            import awesomePackage from 'awesome-package';
+            const awesomePackage = require('awesome-package');
             \`\`\`
 
             Testing
@@ -291,13 +328,13 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`generates a titled README with variant placeholders and testing command
         if passed an object with \`pkg.name\`, \`pkg.scripts.test\`, and
         \`preferYarn\` properties`, function () {
-        const parameters = {
+        const config = {
             pkg: {
                 name: 'awesome-package',
                 scripts: { test: 'jasmine' }
@@ -319,7 +356,7 @@ describe('readme-md', function () {
             Usage
             -----
             \`\`\`js
-            import awesomePackage from 'awesome-package';
+            const awesomePackage = require('awesome-package');
             \`\`\`
 
             Testing
@@ -333,12 +370,12 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`adds an "See Also" section when passed an appropriate
         \`additionalSections\` argument using a numeric position`, function () {
-        const parameters = {
+        const config = {
             additionalSections: [
                 {
                     body: '- [Example](http://www.example.com/)',
@@ -374,12 +411,12 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`adds an "See Also" section when passed an appropriate
         \`additionalSections\` argument using an "after" position directive`, function () {
-        const parameters = {
+        const config = {
             additionalSections: [
                 {
                     body: '- [Example](http://www.example.com/)',
@@ -415,12 +452,12 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it(`adds an "See Also" section when passed an appropriate
         \`additionalSections\` argument using a "before" position directive`, function () {
-        const parameters = {
+        const config = {
             additionalSections: [
                 {
                     body: '- [Example](http://www.example.com/)',
@@ -456,11 +493,11 @@ describe('readme-md', function () {
             _To be documented._
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it('documents an "MIT" software license', function () {
-        const parameters = { pkg: { license: 'MIT' } };
+        const config = { pkg: { license: 'MIT' } };
 
         const fixture = stripIndents`
             &lt;package-name&gt;
@@ -484,11 +521,11 @@ describe('readme-md', function () {
             The MIT License. See the license file for details.
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it('documents and linkifies an "MIT" software license', function () {
-        const parameters = {
+        const config = {
             license: {
                 linkTarget: 'LICENSE'
             },
@@ -519,11 +556,11 @@ describe('readme-md', function () {
             The MIT License. See the [license file](LICENSE) for details.
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it('documents an "UNLICENSED" software license differently than a SPDX license', function () {
-        const parameters = { pkg: { license: 'UNLICENSED' } };
+        const config = { pkg: { license: 'UNLICENSED' } };
 
         const fixture = stripIndents`
             &lt;package-name&gt;
@@ -547,10 +584,10 @@ describe('readme-md', function () {
             This is unlicensed proprietary software.
         `;
 
-        expect(readme(parameters)).toEqual(fixture);
+        expect(readme(config)).toEqual(fixture);
     });
 
     it('returns a string', function () {
-        expect(readme(this.parameters)).toEqual(any(String));
+        expect(readme(this.config)).toEqual(any(String));
     });
 });
