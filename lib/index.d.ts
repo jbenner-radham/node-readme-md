@@ -3,6 +3,7 @@ import type { PackageJson } from 'type-fest';
 export type { default as Badges } from './Badges.d.ts';
 export type { PLACEHOLDER } from './constants.d.ts';
 export type { default as getPackageBasename } from './get-package-basename.d.ts';
+export type { default as getPackageUsageStatement } from './get-package-usage-statement';
 export type { default as licenseBody } from './license-body.d.ts';
 export type { default as linkifyLicense } from './linkify-license.d.ts';
 export type { default as ReadmeSections, ReadmeSection } from './ReadmeSections.d.ts';
@@ -10,7 +11,7 @@ export type { default as ReadmeSections, ReadmeSection } from './ReadmeSections.
 /**
  * The badge style types.
  *
- * @see {@link https://shields.io/#styles}
+ * @see {@link https://shields.io/badges}
  */
 export type BadgeStyle = 'plastic' | 'flat' | 'flat-square' | 'for-the-badge' | 'social';
 
@@ -103,11 +104,23 @@ export interface ReadmeConfig {
     preferDev?: boolean;
 
     /**
+     * Whether the example code in the "Usage" section should be terminated by
+     * semicolons. Defaults to `true`.
+     */
+    preferSemicolons?: boolean;
+
+    /**
      * Whether the package should be shown as being globally installed in the
      * "Install" section of the readme. If both this and the `preferDev` option
      * are set as `true` then `preferDev` will take precedence.
      */
     preferYarn?: boolean;
+
+    /**
+     * The type of quotes used in the "Usage" section. Defaults to single
+     * quotes.
+     */
+    quoteType?: 'double' | 'single';
 }
 
 export default function readme(config?: ReadmeConfig): string;
