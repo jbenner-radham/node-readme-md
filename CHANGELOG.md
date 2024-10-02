@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased]
 ------------
+### Added
+- More usage examples to the readme.
+
 ### Changed
 - The `config.license.link` parameter has been changed to `config.licenseLink`.
 

@@ -15,6 +15,8 @@ yarn add readme-md # Or alternatively: `npm install readme-md`
 
 Usage
 -----
+
+### JavaScript (Basic)
 ```javascript
 import readme from 'readme-md';
 
@@ -27,23 +29,11 @@ const pkg = {
         test: 'jest'
     }
 };
-const additionalSections = [
-    {
-        position: 'before:Install',
-        title: 'Greetings',
-        body: 'Hello world!'
-    }
-];
-const licenseLink = 'LICENSE';
 
-readme({ pkg, additionalSections, licenseLink });
+readme({ pkg });
 // > my-awesome-package
 // > ==================
 // > An awesome package.
-// >
-// > Greetings
-// > ---------
-// > Hello world!
 // >
 // > Install
 // > -------
@@ -61,6 +51,148 @@ readme({ pkg, additionalSections, licenseLink });
 // > -------
 // > ```sh
 // > npm test
+// > ```
+// >
+// > License
+// > -------
+// > The MIT License. See the license file for details.
+```
+
+### JavaScript (Advanced)
+```javascript
+import readme from 'readme-md';
+
+const pkg = {
+    name: 'my-awesome-package',
+    description: 'An awesome package.',
+    type: 'module',
+    license: 'MIT',
+    scripts: {
+        test: 'jest'
+    },
+    engines: {
+        yarn: '1.x'
+    }
+};
+
+const additionalSections = [
+    {
+        position: 'before:Install',
+        title: 'Greetings',
+        body: 'Hello world!'
+    }
+];
+
+// See https://shields.io/badges for reference.
+const badges = [
+    {
+        alt: 'Build Status',
+        image: 'https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github',
+        link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml',
+        style: 'flat'
+    }
+];
+
+const licenseLink = 'LICENSE';
+
+readme({ pkg, additionalSections, badges, licenseLink });
+// > my-awesome-package
+// > ==================
+// > [![Build Status](https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github&style=flat)](https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml)
+// >
+// > An awesome package.
+// >
+// > Greetings
+// > ---------
+// > Hello world!
+// >
+// > Install
+// > -------
+// > ```sh
+// > yarn add my-awesome-package # Or alternatively: `npm install my-awesome-package`
+// > ```
+// >
+// > Usage
+// > -----
+// > ```js
+// > import myAwesomePackage from 'my-awesome-package';
+// > ```
+// >
+// > Testing
+// > -------
+// > ```sh
+// > yarn test # Or alternatively: `npm test`
+// > ```
+// >
+// > License
+// > -------
+// > The MIT License. See the [license file](LICENSE) for details.
+```
+
+### TypeScript (Advanced)
+```typescript
+import readme, { type Badge } from 'readme-md';
+
+const pkg = {
+    name: 'my-awesome-package',
+    description: 'An awesome package.',
+    type: 'module',
+    license: 'MIT',
+    scripts: {
+        test: 'jest'
+    },
+    engines: {
+        yarn: '1.x'
+    }
+};
+
+const additionalSections = [
+    {
+        position: 'before:Install',
+        title: 'Greetings',
+        body: 'Hello world!'
+    }
+];
+
+// See https://shields.io/badges for reference.
+const badges: Badge[] = [
+    {
+        alt: 'Build Status',
+        image: 'https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github',
+        link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml',
+        style: 'flat'
+    }
+];
+
+const licenseLink = 'LICENSE';
+
+readme({ pkg, additionalSections, badges, licenseLink });
+// > my-awesome-package
+// > ==================
+// > [![Build Status](https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github&style=flat)](https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml)
+// >
+// > An awesome package.
+// >
+// > Greetings
+// > ---------
+// > Hello world!
+// >
+// > Install
+// > -------
+// > ```sh
+// > yarn add my-awesome-package # Or alternatively: `npm install my-awesome-package`
+// > ```
+// >
+// > Usage
+// > -----
+// > ```js
+// > import myAwesomePackage from 'my-awesome-package';
+// > ```
+// >
+// > Testing
+// > -------
+// > ```sh
+// > yarn test # Or alternatively: `npm test`
 // > ```
 // >
 // > License
