@@ -221,10 +221,15 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders if passed an object
-        with \`pkg.name\` and \`preferYarn\` properties`, function () {
+        with \`pkg.name\` and \`pkg.engines.yarn\` properties`, function () {
         const config = {
-            pkg: { name: 'awesome-package' },
-            preferYarn: true
+            pkg: {
+                name: 'awesome-package',
+                // eslint-disable-next-line sort-keys
+                engines: {
+                    yarn: '1.x'
+                }
+            }
         };
 
         const fixture = stripIndents`
@@ -256,12 +261,64 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
+    it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`,
+        \`pkg.type\`, \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, function () {
+        const config = {
+            pkg: {
+                engines: {
+                    pnpm: '*'
+                },
+                name: 'awesome-package',
+                scripts: {
+                    test: 'mocha'
+                },
+                type: 'module'
+            }
+        };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            pnpm add awesome-package # Or alternatively: \`npm install awesome-package\`
+            \`\`\`
+
+            Usage
+            -----
+            \`\`\`js
+            import awesomePackage from 'awesome-package';
+            \`\`\`
+
+            Testing
+            -------
+            \`\`\`sh
+            pnpm test # Or alternatively: \`npm test\`
+            \`\`\`
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(config)).toEqual(fixture);
+    });
+
     it(`generates a titled README with variant placeholders and a global install
         if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
-        \`preferYarn\` properties`, function () {
+        \`pkg.engines.yarn\` properties`, function () {
         const config = {
-            pkg: { name: 'awesome-package', preferGlobal: true },
-            preferYarn: true
+            pkg: {
+                name: 'awesome-package',
+                // eslint-disable-next-line sort-keys
+                engines: {
+                    yarn: '1.x'
+                },
+                preferGlobal: true
+            }
         };
 
         const fixture = stripIndents`
@@ -333,13 +390,14 @@ describe('readme-md', function () {
 
     it(`generates a titled README with variant placeholders and testing command
         if passed an object with \`pkg.name\`, \`pkg.scripts.test\`, and
-        \`preferYarn\` properties`, function () {
+        \`pkg.engines.yarn\` properties`, function () {
         const config = {
             pkg: {
                 name: 'awesome-package',
-                scripts: { test: 'jasmine' }
-            },
-            preferYarn: true
+                scripts: { test: 'jasmine' },
+                // eslint-disable-next-line sort-keys
+                engines: { yarn: '1.x' }
+            }
         };
 
         const fixture = stripIndents`
@@ -419,7 +477,7 @@ describe('readme-md', function () {
         const config = {
             additionalSections: [
                 {
-                    body: '- [Example](http://www.example.com/)',
+                    body: '- [Example](https://www.example.com/)',
                     position: 'after:Testing',
                     title: 'See Also'
                 }
@@ -445,7 +503,7 @@ describe('readme-md', function () {
 
             See Also
             --------
-            - [Example](http://www.example.com/)
+            - [Example](https://www.example.com/)
 
             License
             -------
@@ -460,7 +518,7 @@ describe('readme-md', function () {
         const config = {
             additionalSections: [
                 {
-                    body: '- [Example](http://www.example.com/)',
+                    body: '- [Example](https://www.example.com/)',
                     position: 'before:License',
                     title: 'See Also'
                 }
@@ -486,7 +544,7 @@ describe('readme-md', function () {
 
             See Also
             --------
-            - [Example](http://www.example.com/)
+            - [Example](https://www.example.com/)
 
             License
             -------

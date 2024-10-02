@@ -3,6 +3,9 @@ import type { PackageJson } from 'type-fest';
 export type { default as Badges } from './Badges.d.ts';
 export type { PLACEHOLDER } from './constants.d.ts';
 export type { default as getPackageBasename } from './get-package-basename.d.ts';
+export type { default as getPackageInstallCommand } from './get-package-install-command.d.ts'
+export type { default as getPackageManager, PackageManager } from './get-package-manager.d.ts';
+export type { default as getPackageTestCommand } from './get-package-test-command.d.ts';
 export type { default as getPackageUsageStatement } from './get-package-usage-statement';
 export type { default as licenseBody } from './license-body.d.ts';
 export type { default as linkifyLicense } from './linkify-license.d.ts';
@@ -98,10 +101,17 @@ export interface ReadmeConfig {
 
     /**
      * Whether the package should be shown as being installed as a dev
-     * dependency in the "Install" section of the readme. If both this and
-     * `preferYarn` are set as `true` then this will take precedence.
+     * dependency in the "Install" section of the readme. Defaults to `false`.
      */
     preferDev?: boolean;
+
+    /**
+     * The package manager used in the "Install" and "Test" sections defaults to
+     * npm. However, this can be changed by specifying a package manager
+     * (pnpm, Yarn) in `pkg.engines`. If desired set this to `true` to override
+     * any package manager specified and utilize npm. Defaults to `false`.
+     */
+    preferNpm?: boolean;
 
     /**
      * Whether the example code in the "Usage" section should be terminated by
@@ -110,17 +120,13 @@ export interface ReadmeConfig {
     preferSemicolons?: boolean;
 
     /**
-     * Whether the package should be shown as being globally installed in the
-     * "Install" section of the readme. If both this and the `preferDev` option
-     * are set as `true` then `preferDev` will take precedence.
-     */
-    preferYarn?: boolean;
-
-    /**
      * The type of quotes used in the "Usage" section. Defaults to single
      * quotes.
      */
     quoteType?: 'double' | 'single';
 }
 
+/**
+ * Generates a readme document based upon the provided config.
+ */
 export default function readme(config?: ReadmeConfig): string;

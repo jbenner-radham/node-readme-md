@@ -74,6 +74,9 @@ API
 ```typescript
 import type { PackageJson } from 'type-fest';
 
+/**
+ * Generates a readme document based upon the provided config.
+ */
 export default function readme(config?: ReadmeConfig): string;
 
 export interface ReadmeConfig {
@@ -100,23 +103,23 @@ export interface ReadmeConfig {
 
     /**
      * Whether the package should be shown as being installed as a dev
-     * dependency in the "Install" section of the readme. If both this and
-     * `preferYarn` are set as `true` then this will take precedence.
+     * dependency in the "Install" section of the readme. Defaults to `false`.
      */
     preferDev?: boolean;
+
+    /**
+     * The package manager used in the "Install" and "Test" sections defaults to
+     * npm. However, this can be changed by specifying a package manager
+     * (pnpm, Yarn) in `pkg.engines`. If desired set this to `true` to override
+     * any package manager specified and utilize npm. Defaults to `false`.
+     */
+    preferNpm?: boolean;
 
     /**
      * Whether the example code in the "Usage" section should be terminated by
      * semicolons. Defaults to `true`.
      */
     preferSemicolons?: boolean;
-
-    /**
-     * Whether the package should be shown as being globally installed in the
-     * "Install" section of the readme. If both this and the `preferDev` option
-     * are set as `true` then `preferDev` will take precedence.
-     */
-    preferYarn?: boolean;
 
     /**
      * The type of quotes used in the "Usage" section. Defaults to single
