@@ -40,13 +40,6 @@ export interface Badge {
     style: BadgeStyle;
 }
 
-export interface License {
-    /**
-     * The link target to the license file.
-     */
-    link: string;
-}
-
 /**
  * A `PositionDirective` is a string which begins with either "before:" or
  * "after:" and the section title to search for.
@@ -115,7 +108,7 @@ export interface ReadmeConfig {
      * While the license is derived from the `pkg.license` option this specifies
      * a link target to the license itself.
      */
-    license?: License;
+    licenseLink?: string;
 
     /**
      * The contents of a `package.json` to parse to generate the readme.

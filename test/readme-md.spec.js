@@ -588,9 +588,7 @@ describe('readme-md', function () {
 
     it('documents and linkifies an "MIT" software license', function () {
         const config = {
-            license: {
-                link: 'LICENSE'
-            },
+            licenseLink: 'LICENSE',
             pkg: {
                 license: 'MIT'
             }
@@ -623,9 +621,7 @@ describe('readme-md', function () {
 
     it('overrides the "License" section when provided the appropriate config', function () {
         const config = {
-            license: {
-                link: 'LICENSE'
-            },
+            licenseLink: 'LICENSE',
             pkg: {
                 license: 'MIT'
             },

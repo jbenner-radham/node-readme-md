@@ -34,8 +34,9 @@ const additionalSections = [
         body: 'Hello world!'
     }
 ];
+const licenseLink = 'LICENSE';
 
-readme({ pkg, additionalSections });
+readme({ pkg, additionalSections, licenseLink });
 // > my-awesome-package
 // > ==================
 // > An awesome package.
@@ -64,7 +65,7 @@ readme({ pkg, additionalSections });
 // >
 // > License
 // > -------
-// > The MIT License. See the license file for details.
+// > The MIT License. See the [license file](LICENSE) for details.
 ```
 
 **NOTE**: This is a pure ESM package. See [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) for details.
@@ -94,7 +95,7 @@ export interface ReadmeConfig {
      * While the license is derived from the `pkg.license` option this specifies
      * a link target to the license itself.
      */
-    license?: License;
+    licenseLink?: string;
 
     /**
      * The contents of a `package.json` to parse to generate the readme.
@@ -192,13 +193,6 @@ export interface Badge {
  * @see {@link https://shields.io/badges}
  */
 export type BadgeStyle = 'plastic' | 'flat' | 'flat-square' | 'for-the-badge' | 'social';
-
-export interface License {
-    /**
-     * The link target to the license file.
-     */
-    link: string;
-}
 
 export interface SectionOverrides {
     /**
