@@ -126,6 +126,11 @@ export interface ReadmeConfig {
      * quotes.
      */
     quoteType?: 'double' | 'single';
+
+    /**
+     * Override any of the default generated sections.
+     */
+    sectionOverrides?: SectionOverrides;
 }
 
 export interface Section {
@@ -192,6 +197,28 @@ export interface License {
      * The link target to the license file.
      */
     link: string;
+}
+
+export interface SectionOverrides {
+    /**
+     * Override for the "Install" section body text.
+     */
+    install?: string;
+
+    /**
+     * Override for the "Usage" section body text.
+     */
+    usage?: string;
+
+    /**
+     * Override for the "Testing" section body text.
+     */
+    testing?: string;
+
+    /**
+     * Override for the "License" section body text.
+     */
+    license?: string;
 }
 ```
 

@@ -77,6 +77,28 @@ export interface Section {
     body?: string;
 }
 
+export interface SectionOverrides {
+    /**
+     * Override for the "Install" section body text.
+     */
+    install?: string;
+
+    /**
+     * Override for the "Usage" section body text.
+     */
+    usage?: string;
+
+    /**
+     * Override for the "Testing" section body text.
+     */
+    testing?: string;
+
+    /**
+     * Override for the "License" section body text.
+     */
+    license?: string;
+}
+
 export interface ReadmeConfig {
     /**
      * Additional sections to add to the readme.
@@ -124,6 +146,11 @@ export interface ReadmeConfig {
      * quotes.
      */
     quoteType?: 'double' | 'single';
+
+    /**
+     * Override any of the default generated sections.
+     */
+    sectionOverrides?: SectionOverrides;
 }
 
 /**

@@ -621,6 +621,44 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
+    it('overrides the "License" section when provided the appropriate config', function () {
+        const config = {
+            license: {
+                link: 'LICENSE'
+            },
+            pkg: {
+                license: 'MIT'
+            },
+            sectionOverrides: {
+                license: 'Licensed under the NOT A REAL LICENSE license.'
+            }
+        };
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Usage
+            -----
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            Licensed under the NOT A REAL LICENSE license.
+        `;
+
+        expect(readme(config)).toEqual(fixture);
+    });
+
     it('documents an "UNLICENSED" software license differently than a SPDX license', function () {
         const config = { pkg: { license: 'UNLICENSED' } };
 
