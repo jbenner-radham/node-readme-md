@@ -46,19 +46,19 @@ readme({ pkg, additionalSections });
 // >
 // > Install
 // > -------
-// > ```shell
+// > ```sh
 // > npm install my-awesome-package
 // > ```
 // >
 // > Usage
 // > -----
-// > ```javascript
+// > ```js
 // > import myAwesomePackage from 'my-awesome-package';
 // > ```
 // >
 // > Testing
 // > -------
-// > ```shell
+// > ```sh
 // > npm test
 // > ```
 // >
