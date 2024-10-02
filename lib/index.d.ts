@@ -44,7 +44,7 @@ export interface License {
     /**
      * The link target to the license file.
      */
-    linkTarget: string;
+    link: string;
 }
 
 /**

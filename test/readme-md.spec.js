@@ -222,6 +222,7 @@ describe('readme-md', function () {
 
     it(`generates a titled README with variant placeholders if passed an object
         with \`pkg.name\` and \`pkg.engines.yarn\` properties`, function () {
+        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -263,6 +264,7 @@ describe('readme-md', function () {
 
     it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`,
         \`pkg.type\`, \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, function () {
+        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 engines: {
@@ -310,6 +312,7 @@ describe('readme-md', function () {
     it(`generates a titled README with variant placeholders and a global install
         if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
         \`pkg.engines.yarn\` properties`, function () {
+        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -391,6 +394,7 @@ describe('readme-md', function () {
     it(`generates a titled README with variant placeholders and testing command
         if passed an object with \`pkg.name\`, \`pkg.scripts.test\`, and
         \`pkg.engines.yarn\` properties`, function () {
+        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -585,7 +589,7 @@ describe('readme-md', function () {
     it('documents and linkifies an "MIT" software license', function () {
         const config = {
             license: {
-                linkTarget: 'LICENSE'
+                link: 'LICENSE'
             },
             pkg: {
                 license: 'MIT'
