@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - The "Usage" section output is now determined by `config.pkg.type`. If it is defined as "module" an `import` statement is output, otherwise a `require` statement is output.
 - The `config.preferYarn` parameter has been replaced by specifying it in `config.pkg.engines`. See [here](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#engines) for reference. Also, support for pnpm has been added as an option. This behaviour can be overridden by setting `config.preferNpm` to `true`.
 - The `config.license.linkTarget` parameter has been changed to `config.license.link`.
+- The required Node.js version is now 18.12.0 or higher.
 
 [0.14.0] - 2024-09-06
 ---------------------
