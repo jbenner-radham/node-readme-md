@@ -436,7 +436,7 @@ describe('readme-md', function () {
         const config = {
             additionalSections: [
                 {
-                    body: '- [Example](http://www.example.com/)',
+                    body: '- [Example](https://www.example.com/)',
                     position: -1,
                     title: 'See Also'
                 }
@@ -462,7 +462,7 @@ describe('readme-md', function () {
 
             See Also
             --------
-            - [Example](http://www.example.com/)
+            - [Example](https://www.example.com/)
 
             License
             -------
