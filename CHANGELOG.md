@@ -5,13 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+[Unreleased]
+------------
+### Fixed
+- Corrected a typo in this changelog.
+
 [0.15.0] - 2024-10-02
 ---------------------
 ### Added
 - Added `config.preferSemicolons` which can have a Boolean value to determine whether the example code in the "Usage" section should be terminated by semicolons.
 - Added `config.quoteType` which can have a value of "single" or "double" to determine the type of quotes used in the "Usage" section.
 - Added an "API" section to the readme.
-- Added `config.sectionOverrides.{install,usage,testing,license}` which can have a string value to override the corresponding sections body text.
+- Added `config.sectionOverrides.{install,usage,testing,license}` which can have a string value to override the corresponding section's body text.
 
 ### Changed
 - The "Usage" section output is now determined by `config.pkg.type`. If it is defined as "module" an `import` statement is output, otherwise a `require` statement is output.
