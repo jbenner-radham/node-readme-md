@@ -42,7 +42,7 @@
     "test": "c8 jasmine --config=test/support/jasmine.json"
   },
   "dependencies": {
-    "camelcase": "^7.0.1",
+    "camelcase": "^8.0.0",
     "md-writer": "^1.1.0",
     "type-fest": "^4.26.1"
   },
