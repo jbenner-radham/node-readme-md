@@ -18,6 +18,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - The `config.license.linkTarget` parameter has been changed to `config.license.link`.
 - The required Node.js version is now 18.12.0 or higher.
 
+### Fixed
+- Corrected typos in the `README.md` and `lib/index.d.ts` files.
+
 ### Security
 - Upgraded the lint-staged dependency due to a ReDoS vulnerability in its micromatch dependency.
 

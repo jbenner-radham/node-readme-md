@@ -106,8 +106,8 @@ export interface ReadmeConfig {
     preferDev?: boolean;
 
     /**
-     * The package manager used in the "Install" and "Test" sections defaults to
-     * npm. However, this can be changed by specifying a package manager
+     * The package manager used in the "Install" and "Testing" sections defaults
+     * to npm. However, this can be changed by specifying a package manager
      * (pnpm, Yarn) in `pkg.engines`. If desired set this to `true` to override
      * any package manager specified and utilize npm. Defaults to `false`.
      */
