@@ -1,7 +1,7 @@
 import type { PackageJson } from 'type-fest';
 
 export type { default as Badges } from './Badges.d.ts';
-export type { PLACEHOLDER } from './constants.d.ts';
+export type { DEFAULT_LICENSE_FILENAME, PLACEHOLDER } from './constants.d.ts';
 export type { default as getPackageBasename } from './get-package-basename.d.ts';
 export type { default as getPackageInstallCommand } from './get-package-install-command.d.ts';
 export type { default as getPackageManager, PackageManager } from './get-package-manager.d.ts';
@@ -94,9 +94,11 @@ export interface ReadmeConfig {
 
     /**
      * While the license is derived from the `pkg.license` option this specifies
-     * a link target to the license itself.
+     * a link target to the license itself. If defined as `true` it will default
+     * to setting the link target to "LICENSE". Please note that if
+     * `pkg.license` is not defined this setting will have no effect.
      */
-    licenseLink?: string;
+    licenseLink?: boolean | string;
 
     /**
      * The contents of a `package.json` to parse to generate the readme.

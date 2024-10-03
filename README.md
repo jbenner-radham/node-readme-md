@@ -222,9 +222,11 @@ export interface ReadmeConfig {
 
     /**
      * While the license is derived from the `pkg.license` option this specifies
-     * a link target to the license itself.
+     * a link target to the license itself. If defined as `true` it will default
+     * to setting the link target to "LICENSE". Please note that if
+     * `pkg.license` is not defined this setting will have no effect.
      */
-    licenseLink?: string;
+    licenseLink?: boolean | string;
 
     /**
      * The contents of a `package.json` to parse to generate the readme.

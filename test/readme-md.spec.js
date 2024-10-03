@@ -616,6 +616,39 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
+    it('documents and linkifies an "MIT" software license automatically when `config.licenseLink` is defined as `true`', function () {
+        const config = {
+            licenseLink: true,
+            pkg: {
+                license: 'MIT'
+            }
+        };
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            Install
+            -------
+            _To be documented._
+
+            Usage
+            -----
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            The MIT License. See the [license file](LICENSE) for details.
+        `;
+
+        expect(readme(config)).toEqual(fixture);
+    });
+
     it('overrides the "License" section when provided the appropriate config', function () {
         const config = {
             licenseLink: 'LICENSE',
