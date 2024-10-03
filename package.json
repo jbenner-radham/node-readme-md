@@ -38,7 +38,7 @@
   "scripts": {
     "lint": "eslint . --ext .js --ignore-path .gitignore",
     "lint:fix": "yarn lint --fix",
-    "prepare": "husky install",
+    "prepare": "husky",
     "test": "c8 jasmine --config=test/support/jasmine.json"
   },
   "dependencies": {
@@ -55,7 +55,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.10.0",
-    "husky": "^8.0.2",
+    "husky": "^9.1.6",
     "jasmine": "^5.3.0",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
