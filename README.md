@@ -131,42 +131,39 @@ readme({ pkg, additionalSections, badges, licenseLink });
 
 ### TypeScript (Advanced)
 ```typescript
-import readme, { type Badge } from 'readme-md';
+import readme, { type ReadmeConfig } from 'readme-md';
 
-const pkg = {
-    name: 'my-awesome-package',
-    description: 'An awesome package.',
-    type: 'module',
-    license: 'MIT',
-    scripts: {
-        test: 'jest'
+const config: ReadmeConfig = {
+    pkg: {
+        name: 'my-awesome-package',
+        description: 'An awesome package.',
+        type: 'module',
+        license: 'MIT',
+        scripts: {
+            test: 'jest'
+        },
+        engines: {
+            yarn: '1.x'
+        }
     },
-    engines: {
-        yarn: '1.x'
-    }
+    additionalSections: [
+        {
+            position: 'before:Install',
+            title: 'Greetings',
+            body: 'Hello world!'
+        }
+    ],
+    badges: [
+        {
+            alt: 'Build Status',
+            image: 'https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github&style=flat',
+            link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml',
+        }
+    ],
+    licenseLink: 'LICENSE'
 };
 
-const additionalSections = [
-    {
-        position: 'before:Install',
-        title: 'Greetings',
-        body: 'Hello world!'
-    }
-];
-
-// See https://shields.io/badges for reference.
-const badges: Badge[] = [
-    {
-        alt: 'Build Status',
-        image: 'https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github',
-        link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml',
-        style: 'flat'
-    }
-];
-
-const licenseLink = 'LICENSE';
-
-readme({ pkg, additionalSections, badges, licenseLink });
+readme(config);
 // > my-awesome-package
 // > ==================
 // > [![Build Status](https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github&style=flat)](https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml)
@@ -312,19 +309,7 @@ export interface Badge {
      * The link target of the image.
      */
     link: string;
-
-    /**
-     * The style of the badge.
-     */
-    style: BadgeStyle;
 }
-
-/**
- * The badge style types.
- *
- * @see {@link https://shields.io/badges}
- */
-export type BadgeStyle = 'plastic' | 'flat' | 'flat-square' | 'for-the-badge' | 'social';
 
 export interface SectionOverrides {
     /**

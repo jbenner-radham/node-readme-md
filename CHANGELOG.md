@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - The `config.license.link` parameter has been changed to `config.licenseLink`.
 - The required Node.js version is now 18.18.0 or higher.
 - Upgraded `camelcase` dependency to version 8.
+- Genericized the `Badge` object used in `config.badges` to decouple it from [shields.io](https://shields.io/). As a result the `Badge.style` property has been removed. If you are using [shields.io](https://shields.io/) badges just append the corresponding `style` query parameter onto your image URL (_e.g._, `?style=flat`).
 
 ### Fixed
 - Corrected a typo in this changelog.

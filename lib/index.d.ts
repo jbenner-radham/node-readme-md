@@ -11,13 +11,6 @@ export type { default as licenseBody } from './license-body.d.ts';
 export type { default as linkifyLicense } from './linkify-license.d.ts';
 export type { default as ReadmeSections, ReadmeSection } from './ReadmeSections.d.ts';
 
-/**
- * The badge style types.
- *
- * @see {@link https://shields.io/badges}
- */
-export type BadgeStyle = 'plastic' | 'flat' | 'flat-square' | 'for-the-badge' | 'social';
-
 export interface Badge {
     /**
      * The image alt tag.
@@ -33,11 +26,6 @@ export interface Badge {
      * The link target of the image.
      */
     link: string;
-
-    /**
-     * The style of the badge.
-     */
-    style: BadgeStyle;
 }
 
 /**
