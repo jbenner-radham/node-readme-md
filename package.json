@@ -36,7 +36,7 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint . --ext .js --ignore-path .gitignore",
+    "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky",
     "test": "c8 jasmine --config=test/support/jasmine.json"
