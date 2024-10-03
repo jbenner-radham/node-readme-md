@@ -36,7 +36,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Corrected typos in the `README.md` and `lib/index.d.ts` files.
 
 ### Security
-- Upgraded the lint-staged dependency due to a ReDoS vulnerability in its micromatch dependency.
+- Upgraded the `lint-staged` dependency due to a ReDoS vulnerability in its `micromatch` dependency.
 
 [0.14.0] - 2024-09-06
 ---------------------
