@@ -83,13 +83,11 @@ const additionalSections = [
     }
 ];
 
-// See https://shields.io/badges for reference.
 const badges = [
     {
         alt: 'Build Status',
-        image: 'https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github',
-        link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml',
-        style: 'flat'
+        image: 'https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github&style=flat',
+        link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml'
     }
 ];
 
@@ -157,7 +155,7 @@ const config: ReadmeConfig = {
         {
             alt: 'Build Status',
             image: 'https://img.shields.io/github/actions/workflow/status/jbenner-radham/node-readme-md/ci.yaml?branch=main&logo=github&style=flat',
-            link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml',
+            link: 'https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml'
         }
     ],
     licenseLink: 'LICENSE'
