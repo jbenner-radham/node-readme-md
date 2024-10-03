@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - The `config.license.link` parameter has been changed to `config.licenseLink`.
 - The required Node.js version is now 18.18.0 or higher.
+- Upgraded `camelcase` dependency to version 8.
 
 ### Fixed
 - Corrected a typo in this changelog.
