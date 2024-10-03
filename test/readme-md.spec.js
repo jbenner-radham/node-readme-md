@@ -75,6 +75,7 @@ describe('readme-md', function () {
     });
 
     it('generates a titled README with placeholders and an `import` statement in the "Usage" section', function () {
+        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -111,9 +112,8 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`generates a titled README with placeholders and a global install example
-        if passed an object with \`pkg.name\` and \`pkg.preferGlobal\`
-        properties`, function () {
+    it(`generates a titled README with placeholders and a global install example if passed an object with \`pkg.name\`
+        and \`pkg.preferGlobal\` properties`, function () {
         const config = { pkg: { name: 'awesome-package', preferGlobal: true } };
 
         const fixture = stripIndents`
@@ -143,9 +143,8 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`generates a titled README with placeholders and a save dev install
-        example if passed an object with \`pkg.name\` and \`preferDev\`
-        properties`, function () {
+    it(`generates a titled README with placeholders and a save dev install example if passed an object with \`pkg.name\`
+        and \`preferDev\` properties`, function () {
         const config = {
             pkg: {
                 name: 'awesome-package'
@@ -181,9 +180,8 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(expected);
     });
 
-    it(`generates a titled README with placeholders and a save dev install
-        example if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
-       \`preferDev\` properties`, function () {
+    it(`generates a titled README with placeholders and a save dev install example if passed an object with
+        \`pkg.name\`, \`pkg.preferGlobal\`, and \`preferDev\` properties`, function () {
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -220,9 +218,9 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(expected);
     });
 
-    it(`generates a titled README with variant placeholders if passed an object
-        with \`pkg.name\` and \`pkg.engines.yarn\` properties`, function () {
-        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
+    it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\` and
+        \`pkg.engines.yarn\` properties`, function () {
+        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 engines: {
@@ -261,9 +259,9 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`,
-        \`pkg.type\`, \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, function () {
-        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
+    it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`, \`pkg.type\`,
+        \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, function () {
+        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 engines: {
@@ -308,9 +306,8 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`generates a titled README with variant placeholders and a global install
-        if passed an object with \`pkg.name\`, \`pkg.preferGlobal\`, and
-        \`pkg.engines.yarn\` properties`, function () {
+    it(`generates a titled README with variant placeholders and a global install if passed an object with \`pkg.name\`,
+        \`pkg.preferGlobal\`, and \`pkg.engines.yarn\` properties`, function () {
         /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
@@ -349,8 +346,8 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`generates a titled README with placeholders and a testing command if
-        passed an object with \`pkg.name\` and \`pkg.scripts.test\` properties`, function () {
+    it(`generates a titled README with placeholders and a testing command if passed an object with \`pkg.name\` and
+        \`pkg.scripts.test\` properties`, function () {
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -389,10 +386,9 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`generates a titled README with variant placeholders and testing command
-        if passed an object with \`pkg.name\`, \`pkg.scripts.test\`, and
-        \`pkg.engines.yarn\` properties`, function () {
-        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
+    it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
+        \`pkg.scripts.test\`, and \`pkg.engines.yarn\` properties`, function () {
+        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 engines: { yarn: '1.x' },
@@ -432,8 +428,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`adds an "See Also" section when passed an appropriate
-        \`additionalSections\` argument using a numeric position`, function () {
+    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a numeric position`, function () {
         const config = {
             additionalSections: [
                 {
@@ -473,8 +468,8 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`adds an "See Also" section when passed an appropriate
-        \`additionalSections\` argument using an "after" position directive`, function () {
+    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using an "after" position
+        directive`, function () {
         const config = {
             additionalSections: [
                 {
@@ -514,8 +509,8 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`adds an "See Also" section when passed an appropriate
-        \`additionalSections\` argument using a "before" position directive`, function () {
+    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a "before" position
+        directive`, function () {
         const config = {
             additionalSections: [
                 {
