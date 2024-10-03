@@ -225,11 +225,10 @@ describe('readme-md', function () {
         /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
-                name: 'awesome-package',
-                // eslint-disable-next-line sort-keys
                 engines: {
                     yarn: '1.x'
-                }
+                },
+                name: 'awesome-package'
             }
         };
 
@@ -315,11 +314,10 @@ describe('readme-md', function () {
         /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
-                name: 'awesome-package',
-                // eslint-disable-next-line sort-keys
                 engines: {
                     yarn: '1.x'
                 },
+                name: 'awesome-package',
                 preferGlobal: true
             }
         };
@@ -397,10 +395,9 @@ describe('readme-md', function () {
         /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
+                engines: { yarn: '1.x' },
                 name: 'awesome-package',
-                scripts: { test: 'jasmine' },
-                // eslint-disable-next-line sort-keys
-                engines: { yarn: '1.x' }
+                scripts: { test: 'jasmine' }
             }
         };
 
