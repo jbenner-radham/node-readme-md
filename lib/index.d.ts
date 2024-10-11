@@ -28,6 +28,18 @@ export interface Badge {
     link: string;
 }
 
+export interface HeroImage {
+    /**
+     * The image alt tag.
+     */
+    alt: string;
+
+    /**
+     * The image URL or path.
+     */
+    src: string;
+}
+
 /**
  * A `PositionDirective` is a string which begins with either "before:" or
  * "after:" and the section title to search for.
@@ -91,6 +103,11 @@ export interface ReadmeConfig {
      * Badges to add to the readme.
      */
     badges?: Badge[];
+
+    /**
+     * Add a hero image to the readme, below the description.
+     */
+    heroImage?: HeroImage;
 
     /**
      * While the license is derived from the `pkg.license` option this specifies

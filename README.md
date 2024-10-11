@@ -219,6 +219,11 @@ export interface ReadmeConfig {
     badges?: Badge[];
 
     /**
+     * Add a hero image to the readme, below the description.
+     */
+    heroImage?: HeroImage;
+
+    /**
      * While the license is derived from the `pkg.license` option this specifies
      * a link target to the license itself. If defined as `true` it will default
      * to setting the link target to "LICENSE". Please note that if
@@ -281,6 +286,18 @@ export interface Section {
      * text.
      */
     body?: string;
+}
+
+export interface HeroImage {
+    /**
+     * The image alt tag.
+     */
+    alt: string;
+
+    /**
+     * The image URL or path.
+     */
+    src: string;
 }
 
 /**
