@@ -708,6 +708,38 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
+    it('displays a hero image when one is specified', function () {
+        const config = {
+            heroImage: { alt: 'Example', src: 'path/to/image.gif' }
+        };
+
+        const fixture = stripIndents`
+            &lt;package-name&gt;
+            ====================
+            _To be documented._
+
+            ![Example](path/to/image.gif)
+
+            Install
+            -------
+            _To be documented._
+
+            Usage
+            -----
+            _To be documented._
+
+            Testing
+            -------
+            _To be documented._
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(config)).toEqual(fixture);
+    });
+
     it('returns a string', function () {
         expect(readme(this.config)).toEqual(any(String));
     });
