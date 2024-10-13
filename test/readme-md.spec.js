@@ -428,6 +428,48 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
+    it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
+        \`pkg.scripts.test\`, and \`pkg.packageManager\` properties`, function () {
+        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
+        const config = {
+            pkg: {
+                name: 'awesome-package',
+                packageManager: 'pnpm@^9.12.1',
+                scripts: { test: 'vitest' }
+            }
+        };
+
+        const fixture = stripIndents`
+            awesome-package
+            ===============
+            _To be documented._
+
+            Install
+            -------
+            \`\`\`sh
+            pnpm add awesome-package # Or alternatively: \`npm install awesome-package\`
+            \`\`\`
+
+            Usage
+            -----
+            \`\`\`js
+            const awesomePackage = require('awesome-package');
+            \`\`\`
+
+            Testing
+            -------
+            \`\`\`sh
+            pnpm test # Or alternatively: \`npm test\`
+            \`\`\`
+
+            License
+            -------
+            _To be documented._
+        `;
+
+        expect(readme(config)).toEqual(fixture);
+    });
+
     it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a numeric position`, function () {
         const config = {
             additionalSections: [
