@@ -13,12 +13,14 @@ jobs:
           - 20.x
           - 22.x
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Enable corepack # Required for act (https://github.com/nektos/act)
+          cache: yarn
+      - name: Enable corepack
+        if: ${{ env.ACT }}
         run: corepack enable
       - name: Install dependencies
         run: yarn install --frozen-lockfile
