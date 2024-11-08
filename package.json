@@ -23,9 +23,13 @@
   "author": "James Benner <james.benner@gmail.com> (https://www.jamesbenner.com/)",
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./lib/index.js",
-      "types": "./lib/index.d.ts"
+    "require": {
+      "types": "./dist/cjs/index.d.ts",
+      "default": "./dist/cjs/index.js"
+    },
+    "import": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
     }
   },
   "directories": {
@@ -33,12 +37,17 @@
     "test": "test"
   },
   "files": [
+    "dist",
     "lib"
   ],
   "scripts": {
+    "prebuild": "yarn clean",
+    "build": "node ./scripts/build.js",
+    "clean": "rimraf dist",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "prepare": "husky",
+    "prepublishOnly": "yarn build",
     "test": "c8 jasmine --config=test/support/jasmine.json"
   },
   "dependencies": {
@@ -53,6 +62,7 @@
     "@types/jasmine": "^5.1.4",
     "c8": "^10.1.2",
     "common-tags": "^1.8.2",
+    "esbuild": "0.24.0",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -61,6 +71,7 @@
     "jasmine": "^5.3.0",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "sort-package-json": "^2.1.0",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.8.0"

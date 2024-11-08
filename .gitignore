@@ -41,3 +41,6 @@ jspm_packages
 
 # Lib testing
 test.js
+
+# Build output
+dist

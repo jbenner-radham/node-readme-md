@@ -15,6 +15,7 @@ yarn add readme-md # Or alternatively: `npm install readme-md`
 
 Usage
 -----
+**NOTE**: This library exports both [CJS](https://nodejs.org/api/modules.html) and [ESM](https://nodejs.org/api/esm.html) modules.
 
 ### JavaScript (Basic)
 ```javascript
@@ -194,8 +195,6 @@ readme(config);
 // > -------
 // > The MIT License. See the [license file](LICENSE) for details.
 ```
-
-**NOTE**: This is a pure ESM package. See [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) for details.
 
 API
 ---
