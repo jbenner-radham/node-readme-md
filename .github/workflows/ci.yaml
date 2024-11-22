@@ -4,7 +4,7 @@ on:
   - pull_request
   - push
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -28,3 +28,7 @@ jobs:
         run: yarn lint
       - name: Test
         run: yarn test
+      - name: Build
+        run: yarn build
+      - name: Check types
+        run: yarn attw
