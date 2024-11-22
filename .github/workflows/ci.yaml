@@ -25,6 +25,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
+        if: ${{ !env.ACT }} # Skip linting if we're running ACT since we do that via Husky & lint-staged locally.
         run: yarn lint
       - name: Test
         run: yarn test
