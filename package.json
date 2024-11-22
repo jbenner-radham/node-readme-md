@@ -47,8 +47,8 @@
     "clean": "rimraf dist",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
+    "prepack": "yarn build",
     "prepare": "husky",
-    "prepublishOnly": "yarn build",
     "test": "c8 jasmine --config=test/support/jasmine.json"
   },
   "dependencies": {

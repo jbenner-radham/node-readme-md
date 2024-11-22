@@ -45,7 +45,5 @@ jobs:
       - name: Lint
         if: ${{ !env.ACT }} # Skip linting if we're running Act since we do that via Husky & lint-staged locally.
         run: yarn lint
-      - name: Build
-        run: yarn build
       - name: Check types
         run: yarn attw
