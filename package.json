@@ -57,7 +57,7 @@
     "type-fest": "^4.27.0"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.17.0",
+    "@arethetypeswrong/cli": "^0.18.2",
     "@eslint/compat": "^1.2.3",
     "@eslint/js": "^9.15.0",
     "@types/common-tags": "^1.8.4",
@@ -84,7 +84,7 @@
   },
   "packageManager": "pnpm@10.15.0",
   "engines": {
-    "node": ">=18.18.0",
+    "node": ">=20",
     "pnpm": ">=10.15.0"
   }
 }
