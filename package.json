@@ -54,7 +54,7 @@
   "dependencies": {
     "camelcase": "^8.0.0",
     "md-writer": "^1.1.0",
-    "type-fest": "^4.27.0"
+    "type-fest": "^5.0.1"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
