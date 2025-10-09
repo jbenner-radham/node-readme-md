@@ -3,6 +3,8 @@ name: CI
 on:
   - pull_request
   - push
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Lint
-        if: ${{ !env.ACT }} # Skip linting if we're running Act since we do that via Husky & lint-staged locally.
+        if: ${{ !env.ACT }} # Skip linting if we're running Act since we do that via Husky.
         run: pnpm run lint
       - name: Test
         run: pnpm test
