@@ -42,12 +42,12 @@
   ],
   "scripts": {
     "act": "node ./scripts/act.js",
-    "prebuild": "yarn clean",
+    "prebuild": "pnpm run clean",
     "build": "node ./scripts/build.js",
     "clean": "rimraf dist",
     "lint": "eslint .",
-    "lint:fix": "yarn lint --fix",
-    "prepack": "yarn build",
+    "lint:fix": "eslint --fix .",
+    "prepack": "pnpm run build",
     "prepare": "husky",
     "test": "c8 jasmine --config=test/support/jasmine.json"
   },
@@ -82,8 +82,9 @@
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.15.0"
   },
+  "packageManager": "pnpm@10.15.0",
   "engines": {
     "node": ">=18.18.0",
-    "yarn": "1.x"
+    "pnpm": ">=10.15.0"
   }
 }

@@ -10,7 +10,7 @@ A `README.md` generator library.
 Install
 -------
 ```shell
-yarn add readme-md # Or alternatively: `npm install readme-md`
+npm install readme-md
 ```
 
 Usage
@@ -354,7 +354,7 @@ export interface SectionOverrides {
 Testing
 -------
 ```shell
-yarn test # Or alternatively: `npm test`
+pnpm test # Or alternatively: `npm test`
 ```
 
 See Also

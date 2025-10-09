@@ -1,2 +1,2 @@
-yarn act
 lint-staged
+pnpm run act

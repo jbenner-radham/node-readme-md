@@ -4,7 +4,7 @@ on:
   - pull_request
   - push
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -12,38 +12,24 @@ jobs:
           - 18.x
           - 20.x
           - 22.x
+          - 24.x
     steps:
       - uses: actions/checkout@v4
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4.1.0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
-      - name: Enable corepack
-        if: ${{ env.ACT }}
-        run: corepack enable
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Test
-        run: yarn test
-      - name: Build
-        run: yarn build
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-          cache: yarn
-      - name: Enable corepack # If on Act we need to enable corepack to have access to Yarn.
-        if: ${{ env.ACT }}
-        run: corepack enable
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
       - name: Lint
         if: ${{ !env.ACT }} # Skip linting if we're running Act since we do that via Husky & lint-staged locally.
         run: yarn lint
+      - name: Test
+        run: pnpm test
       - name: Check types
-        run: yarn attw
+        run: pnpm exec attw
+      - name: Build
+        run: pnpm run build
