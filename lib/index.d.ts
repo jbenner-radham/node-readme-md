@@ -110,10 +110,10 @@ export interface ReadmeConfig {
     heroImage?: HeroImage;
 
     /**
-     * While the license is derived from the `pkg.license` option this specifies
+     * While the license is derived from the `pkg.license` option, this specifies
      * a link target to the license itself. If defined as `true` it will default
      * to setting the link target to "LICENSE". Please note that if
-     * `pkg.license` is not defined this setting will have no effect.
+     * `pkg.license` is not defined, this setting will have no effect.
      */
     licenseLink?: boolean | string;
 
@@ -131,7 +131,7 @@ export interface ReadmeConfig {
     /**
      * The package manager used in the "Install" and "Testing" sections defaults
      * to npm. However, this can be changed by specifying a package manager
-     * (pnpm, Yarn) in `pkg.engines`. If desired set this to `true` to override
+     * (pnpm, Yarn) in `pkg.engines`. If desired, set this to `true` to override
      * any package manager specified and utilize npm. Defaults to `false`.
      */
     preferNpm?: boolean;
@@ -146,7 +146,7 @@ export interface ReadmeConfig {
      * The type of quotes used in the "Usage" section. Defaults to single
      * quotes.
      */
-    quoteType?: 'double' | 'single';
+    quoteType?: 'backtick' | 'double' | 'single';
 
     /**
      * Override any of the default generated sections.
