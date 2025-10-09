@@ -259,7 +259,7 @@ export interface ReadmeConfig {
      * The type of quotes used in the "Usage" section. Defaults to single
      * quotes.
      */
-    quoteType?: 'double' | 'single';
+    quoteType?: 'backtick' | 'double' | 'single';
 
     /**
      * Override any of the default generated sections.
