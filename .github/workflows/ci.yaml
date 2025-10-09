@@ -26,7 +26,7 @@ jobs:
         run: pnpm install
       - name: Lint
         if: ${{ !env.ACT }} # Skip linting if we're running Act since we do that via Husky & lint-staged locally.
-        run: yarn lint
+        run: pnpm run lint
       - name: Test
         run: pnpm test
       - name: Check types
