@@ -1,22 +1,19 @@
 import readme from '../lib/index.js';
 import { stripIndents } from 'common-tags';
+import { describe, expect, it } from 'vitest';
 
-const any = jasmine.any;
-
-describe('readme-md', function () {
-    beforeEach(function () {
-        this.config = {
-            pkg: {
-                name: 'readme-md'
-            }
-        };
+describe('readme-md', () => {
+    it('is a function', () => {
+        expect(readme).toBeTypeOf('function');
     });
 
-    it('is a function', function () {
-        expect(readme).toEqual(any(Function));
+    it('returns a string', () => {
+        const config = { pkg: { name: 'awesome-package' } };
+
+        expect(readme(config)).toBeTypeOf('string');
     });
 
-    it('generates a README with placeholders if not passed any arguments', function () {
+    it('generates a README with placeholders if not passed any arguments', () => {
         const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
@@ -42,7 +39,7 @@ describe('readme-md', function () {
         expect(readme()).toEqual(fixture);
     });
 
-    it('generates a titled README with placeholders if passed an object with only a `pkg.name` property', function () {
+    it('generates a titled README with placeholders if passed an object with only a `pkg.name` property', () => {
         const config = { pkg: { name: 'awesome-package' } };
 
         const fixture = stripIndents`
@@ -74,7 +71,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it('generates a titled README with placeholders and an `import` statement in the "Usage" section', function () {
+    it('generates a titled README with placeholders and an `import` statement in the "Usage" section', () => {
         /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
@@ -113,7 +110,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with placeholders and a global install example if passed an object with \`pkg.name\`
-        and \`pkg.preferGlobal\` properties`, function () {
+        and \`pkg.preferGlobal\` properties`, () => {
         const config = { pkg: { name: 'awesome-package', preferGlobal: true } };
 
         const fixture = stripIndents`
@@ -144,7 +141,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with placeholders and a save dev install example if passed an object with \`pkg.name\`
-        and \`preferDev\` properties`, function () {
+        and \`preferDev\` properties`, () => {
         const config = {
             pkg: {
                 name: 'awesome-package'
@@ -181,7 +178,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with placeholders and a save dev install example if passed an object with
-        \`pkg.name\`, \`pkg.preferGlobal\`, and \`preferDev\` properties`, function () {
+        \`pkg.name\`, \`pkg.preferGlobal\`, and \`preferDev\` properties`, () => {
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -219,7 +216,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\` and
-        \`pkg.engines.yarn\` properties`, function () {
+        \`pkg.engines.yarn\` properties`, () => {
         /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
@@ -260,7 +257,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`, \`pkg.type\`,
-        \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, function () {
+        \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, () => {
         /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
@@ -307,7 +304,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders and a global install if passed an object with \`pkg.name\`,
-        \`pkg.preferGlobal\`, and \`pkg.engines.yarn\` properties`, function () {
+        \`pkg.preferGlobal\`, and \`pkg.engines.yarn\` properties`, () => {
         /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
@@ -347,7 +344,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with placeholders and a testing command if passed an object with \`pkg.name\` and
-        \`pkg.scripts.test\` properties`, function () {
+        \`pkg.scripts.test\` properties`, () => {
         const config = {
             pkg: {
                 name: 'awesome-package',
@@ -387,7 +384,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
-        \`pkg.scripts.test\`, and \`pkg.engines.yarn\` properties`, function () {
+        \`pkg.scripts.test\`, and \`pkg.engines.yarn\` properties`, () => {
         /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
@@ -429,7 +426,7 @@ describe('readme-md', function () {
     });
 
     it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
-        \`pkg.scripts.test\`, and \`pkg.packageManager\` properties`, function () {
+        \`pkg.scripts.test\`, and \`pkg.packageManager\` properties`, () => {
         /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
@@ -470,7 +467,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a numeric position`, function () {
+    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a numeric position`, () => {
         const config = {
             additionalSections: [
                 {
@@ -511,7 +508,7 @@ describe('readme-md', function () {
     });
 
     it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using an "after" position
-        directive`, function () {
+        directive`, () => {
         const config = {
             additionalSections: [
                 {
@@ -552,7 +549,7 @@ describe('readme-md', function () {
     });
 
     it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a "before" position
-        directive`, function () {
+        directive`, () => {
         const config = {
             additionalSections: [
                 {
@@ -592,7 +589,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it('documents an "MIT" software license', function () {
+    it('documents an "MIT" software license', () => {
         const config = { pkg: { license: 'MIT' } };
 
         const fixture = stripIndents`
@@ -620,7 +617,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it('documents and linkifies an "MIT" software license', function () {
+    it('documents and linkifies an "MIT" software license', () => {
         const config = {
             licenseLink: 'LICENSE',
             pkg: {
@@ -653,7 +650,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it('documents and linkifies an "MIT" software license automatically when `config.licenseLink` is defined as `true`', function () {
+    it('documents and linkifies an "MIT" software license automatically when `config.licenseLink` is defined as `true`', () => {
         const config = {
             licenseLink: true,
             pkg: {
@@ -686,7 +683,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it('overrides the "License" section when provided the appropriate config', function () {
+    it('overrides the "License" section when provided the appropriate config', () => {
         const config = {
             licenseLink: 'LICENSE',
             pkg: {
@@ -722,7 +719,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it('documents an "UNLICENSED" software license differently than a SPDX license', function () {
+    it('documents an "UNLICENSED" software license differently than a SPDX license', () => {
         const config = { pkg: { license: 'UNLICENSED' } };
 
         const fixture = stripIndents`
@@ -750,7 +747,7 @@ describe('readme-md', function () {
         expect(readme(config)).toEqual(fixture);
     });
 
-    it('displays a hero image when one is specified', function () {
+    it('displays a hero image when one is specified', () => {
         const config = {
             heroImage: { alt: 'Example', src: 'path/to/image.gif' }
         };
@@ -780,9 +777,5 @@ describe('readme-md', function () {
         `;
 
         expect(readme(config)).toEqual(fixture);
-    });
-
-    it('returns a string', function () {
-        expect(readme(this.config)).toEqual(any(String));
     });
 });

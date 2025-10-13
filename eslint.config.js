@@ -21,11 +21,5 @@ export default [
         rules: {
             'sort-keys': ['error', 'asc', { caseSensitive: true, natural: true }]
         }
-    },
-    {
-        files: ['**/*.spec.js'],
-        languageOptions: {
-            globals: { ...globals.browser, ...globals.jasmine }
-        }
     }
 ];
