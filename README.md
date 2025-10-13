@@ -363,11 +363,11 @@ See Also
 
 License
 -------
-The MIT License. See the [license file](LICENSE) for details.
+The BSD-3-Clause License. See the [license file](LICENSE) for details.
 
 [CI BADGE]: https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml/badge.svg
 [CI PAGE]: https://github.com/jbenner-radham/node-readme-md/actions/workflows/ci.yaml
-[LICENSE BADGE]: https://img.shields.io/badge/license-MIT%20License-blue.svg
+[LICENSE BADGE]: https://img.shields.io/badge/license-BSD--3--Clause%20License-blue.svg
 [LICENSE PAGE]: https://github.com/jbenner-radham/node-readme-md/blob/master/LICENSE
 [NODE PAGE]: https://nodejs.org/
 [NODE VERSION BADGE]: https://img.shields.io/node/v/readme-md.svg
