@@ -3,8 +3,8 @@ import { h2, LF } from 'md-writer';
 
 export default class ReadmeSections extends Array<ReadmeSection> {
   /**
-     * Get the position index for a section from a number or position directive.
-     */
+   * Get the position index for a section from a number or position directive.
+   */
   getPositionIndex(position: number | PositionDirective): number {
     if (typeof position === 'number') {
       if (Number.isNaN(position)) {
@@ -50,8 +50,8 @@ export default class ReadmeSections extends Array<ReadmeSection> {
   }
 
   /**
-     * Get the position index for a section from the section title.
-     */
+   * Get the position index for a section from the section title.
+   */
   getSectionIndex(title = ''): number {
     const sectionIndex = this.reduce((accumulator, sectionPair, index) => {
       const [header] = sectionPair;
@@ -66,8 +66,8 @@ export default class ReadmeSections extends Array<ReadmeSection> {
   }
 
   /**
-     * Returns a string representation of the readme.
-     */
+   * Returns a string representation of the readme.
+   */
   toString(): string {
     return this.map(headerBodyPair => headerBodyPair.join(LF)).join(`${LF}${LF}`);
   }

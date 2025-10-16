@@ -3,8 +3,8 @@ import { LF } from 'md-writer';
 
 export default class Badges extends Array<Badge> {
   /**
-     * Return a string representation of the badges.
-     */
+   * Return a string representation of the badges.
+   */
   toString(): string {
     return (
       this.map(badge => {
