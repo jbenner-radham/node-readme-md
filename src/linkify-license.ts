@@ -6,5 +6,7 @@ import { DEFAULT_LICENSE_FILENAME } from './constants.js';
  * @see {@link https://spec.commonmark.org/0.31.2/#inline-link}
  */
 export default function linkifyLicense(body: string, link: boolean | string): string {
-    return body.replace(/license file/, `[license file](${link === true ? DEFAULT_LICENSE_FILENAME : link})`);
+  return body.replace(
+    /license file/, `[license file](${link === true ? DEFAULT_LICENSE_FILENAME : link})`
+  );
 }
