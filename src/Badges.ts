@@ -7,9 +7,8 @@ export default class Badges extends Array<Badge> {
    */
   toString(): string {
     return (
-      this.map(badge => {
-        return `[![${badge.alt}](${badge.image})](${badge.link})`;
-      }).join(LF) || ''
+      this.map(badge => `[![${badge.alt}](${badge.image})](${badge.link})`)
+        .join(LF)
     );
   }
 }

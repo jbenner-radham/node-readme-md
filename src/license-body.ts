@@ -1,7 +1,7 @@
 import { PLACEHOLDER } from './constants.js';
 
 /**
- * Generates the body of the license section of the readme.
+ * Generates the body of the license section for the readme.
  *
  * @see {@link https://spdx.org/licenses/}
  */

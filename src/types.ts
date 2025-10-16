@@ -50,8 +50,8 @@ export type PositionDirective = string;
 export interface Section {
 
   /**
-   * The position of the section in the readme. If not specified the section
-   * will be appended onto the end of the readme. If a number is specified it
+   * The position of the section in the readme. If not specified, the section
+   * will be appended onto the end of the readme. If a number is specified, it
    * can be either positive or negative.
    */
   position?: number | PositionDirective;

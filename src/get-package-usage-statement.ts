@@ -6,7 +6,7 @@ import camelCase from 'camelcase';
  * Get either a `require` or `import` statement for the "Usage" section of the README.
  */
 export default function getPackageUsageStatement(config: ReadmeConfig = {}): string {
-  type QuoteChar = '`' | '"' | '\'';
+  type QuoteChar = '`' | '"' | "'";
 
   const getQuoteChar = (quoteType: 'backtick' | 'double' | 'single'): QuoteChar => {
     switch (quoteType) {
