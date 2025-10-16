@@ -1,20 +1,21 @@
-import readme from '../lib/index.js';
+import readme from '../src/index.js';
+import type { ReadmeConfig } from '../src/types.js';
 import { stripIndents } from 'common-tags';
 import { describe, expect, it } from 'vitest';
 
 describe('readme-md', () => {
-    it('is a function', () => {
-        expect(readme).toBeTypeOf('function');
-    });
+  it('is a function', () => {
+    expect(readme).toBeTypeOf('function');
+  });
 
-    it('returns a string', () => {
-        const config = { pkg: { name: 'awesome-package' } };
+  it('returns a string', () => {
+    const config = { pkg: { name: 'awesome-package' } };
 
-        expect(readme(config)).toBeTypeOf('string');
-    });
+    expect(readme(config)).toBeTypeOf('string');
+  });
 
-    it('generates a README with placeholders if not passed any arguments', () => {
-        const fixture = stripIndents`
+  it('generates a README with placeholders if not passed any arguments', () => {
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -36,13 +37,14 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme()).toEqual(fixture);
-    });
+    expect(readme()).toEqual(fixture);
+  });
 
-    it('generates a titled README with placeholders if passed an object with only a `pkg.name` property', () => {
-        const config = { pkg: { name: 'awesome-package' } };
+  it('generates a titled README with placeholders if passed an object with only a `pkg.name`' +
+    ' property', () => {
+    const config = { pkg: { name: 'awesome-package' } };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -68,19 +70,19 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it('generates a titled README with placeholders and an `import` statement in the "Usage" section', () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
-            pkg: {
-                name: 'awesome-package',
-                type: 'module'
-            }
-        };
+  it('generates a titled README with placeholders and an `import` statement in the "Usage"' +
+    ' section', () => {
+    const config: ReadmeConfig = {
+      pkg: {
+        name: 'awesome-package',
+        type: 'module'
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -106,14 +108,14 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`generates a titled README with placeholders and a global install example if passed an object with \`pkg.name\`
-        and \`pkg.preferGlobal\` properties`, () => {
-        const config = { pkg: { name: 'awesome-package', preferGlobal: true } };
+  it(`generates a titled README with placeholders and a global install example if passed an
+    object with \`pkg.name\` and \`pkg.preferGlobal\` properties`, () => {
+    const config = { pkg: { name: 'awesome-package', preferGlobal: true } };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -137,18 +139,18 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`generates a titled README with placeholders and a save dev install example if passed an object with \`pkg.name\`
-        and \`preferDev\` properties`, () => {
-        const config = {
-            pkg: {
-                name: 'awesome-package'
-            },
-            preferDev: true
-        };
-        const expected = stripIndents`
+  it(`generates a titled README with placeholders and a save dev install example if passed
+    an object with \`pkg.name\` and \`preferDev\` properties`, () => {
+    const config = {
+      pkg: {
+        name: 'awesome-package'
+      },
+      preferDev: true
+    };
+    const expected = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -174,19 +176,19 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(expected);
-    });
+    expect(readme(config)).toEqual(expected);
+  });
 
-    it(`generates a titled README with placeholders and a save dev install example if passed an object with
-        \`pkg.name\`, \`pkg.preferGlobal\`, and \`preferDev\` properties`, () => {
-        const config = {
-            pkg: {
-                name: 'awesome-package',
-                preferGlobal: true
-            },
-            preferDev: true
-        };
-        const expected = stripIndents`
+  it(`generates a titled README with placeholders and a save dev install example if passed an
+    object with \`pkg.name\`, \`pkg.preferGlobal\`, and \`preferDev\` properties`, () => {
+    const config = {
+      pkg: {
+        name: 'awesome-package',
+        preferGlobal: true
+      },
+      preferDev: true
+    };
+    const expected = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -212,22 +214,21 @@ describe('readme-md', () => {
             _To be documented._
     `;
 
-        expect(readme(config)).toEqual(expected);
-    });
+    expect(readme(config)).toEqual(expected);
+  });
 
-    it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\` and
+  it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\` and
         \`pkg.engines.yarn\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
-            pkg: {
-                engines: {
-                    yarn: '1.x'
-                },
-                name: 'awesome-package'
-            }
-        };
+    const config = {
+      pkg: {
+        engines: {
+          yarn: '1.x'
+        },
+        name: 'awesome-package'
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -253,26 +254,25 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`, \`pkg.type\`,
-        \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
-            pkg: {
-                engines: {
-                    pnpm: '*'
-                },
-                name: 'awesome-package',
-                scripts: {
-                    test: 'mocha'
-                },
-                type: 'module'
-            }
-        };
+  it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`,
+    \`pkg.type\`, \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, () => {
+    const config: ReadmeConfig = {
+      pkg: {
+        engines: {
+          pnpm: '*'
+        },
+        name: 'awesome-package',
+        scripts: {
+          test: 'mocha'
+        },
+        type: 'module'
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -300,23 +300,25 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`generates a titled README with variant placeholders and a global install if passed an object with \`pkg.name\`,
-        \`pkg.preferGlobal\`, and \`pkg.engines.yarn\` properties`, () => {
-        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
-            pkg: {
-                engines: {
-                    yarn: '1.x'
-                },
-                name: 'awesome-package',
-                preferGlobal: true
-            }
-        };
+  it(`generates a titled README with variant placeholders and a global install if passed an
+    object with \`pkg.name\`, \`pkg.preferGlobal\`, and \`pkg.engines.yarn\` properties`, () => {
+    const config = {
+      pkg: {
+        engines: {
+          yarn: '1.x'
+        },
+        name: 'awesome-package',
+        preferGlobal: true
+      }
+    };
 
-        const fixture = stripIndents`
+    const yarnAddCmd = 'yarn global add awesome-package' +
+      ' # Or alternatively: `npm install --global awesome-package`';
+
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -324,7 +326,7 @@ describe('readme-md', () => {
             Install
             -------
             \`\`\`sh
-            yarn global add awesome-package # Or alternatively: \`npm install --global awesome-package\`
+            ${yarnAddCmd}
             \`\`\`
 
             Usage
@@ -340,19 +342,19 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`generates a titled README with placeholders and a testing command if passed an object with \`pkg.name\` and
-        \`pkg.scripts.test\` properties`, () => {
-        const config = {
-            pkg: {
-                name: 'awesome-package',
-                scripts: { test: 'jasmine' }
-            }
-        };
+  it(`generates a titled README with placeholders and a testing command if passed an object
+    with \`pkg.name\` and \`pkg.scripts.test\` properties`, () => {
+    const config = {
+      pkg: {
+        name: 'awesome-package',
+        scripts: { test: 'jasmine' }
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -380,21 +382,20 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
-        \`pkg.scripts.test\`, and \`pkg.engines.yarn\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
-            pkg: {
-                engines: { yarn: '1.x' },
-                name: 'awesome-package',
-                scripts: { test: 'jasmine' }
-            }
-        };
+  it(`generates a titled README with variant placeholders and testing command if passed an object
+    with \`pkg.name\`, \`pkg.scripts.test\`, and \`pkg.engines.yarn\` properties`, () => {
+    const config = {
+      pkg: {
+        engines: { yarn: '1.x' },
+        name: 'awesome-package',
+        scripts: { test: 'jasmine' }
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -422,21 +423,20 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
-        \`pkg.scripts.test\`, and \`pkg.packageManager\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
-            pkg: {
-                name: 'awesome-package',
-                packageManager: 'pnpm@^9.12.1',
-                scripts: { test: 'vitest' }
-            }
-        };
+  it(`generates a titled README with variant placeholders and testing command if passed an object
+    with \`pkg.name\`, \`pkg.scripts.test\`, and \`pkg.packageManager\` properties`, () => {
+    const config = {
+      pkg: {
+        name: 'awesome-package',
+        packageManager: 'pnpm@^9.12.1',
+        scripts: { test: 'vitest' }
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             awesome-package
             ===============
             _To be documented._
@@ -464,21 +464,22 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a numeric position`, () => {
-        const config = {
-            additionalSections: [
-                {
-                    body: '- [Example](https://www.example.com/)',
-                    position: -1,
-                    title: 'See Also'
-                }
-            ]
-        };
+  it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a
+    numeric position`, () => {
+    const config = {
+      additionalSections: [
+        {
+          body: '- [Example](https://www.example.com/)',
+          position: -1,
+          title: 'See Also'
+        }
+      ]
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -504,22 +505,22 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using an "after" position
-        directive`, () => {
-        const config = {
-            additionalSections: [
-                {
-                    body: '- [Example](https://www.example.com/)',
-                    position: 'after:Testing',
-                    title: 'See Also'
-                }
-            ]
-        };
+  it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument
+    using an "after" position directive`, () => {
+    const config = {
+      additionalSections: [
+        {
+          body: '- [Example](https://www.example.com/)',
+          position: 'after:Testing',
+          title: 'See Also'
+        }
+      ]
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -545,22 +546,22 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using a "before" position
-        directive`, () => {
-        const config = {
-            additionalSections: [
-                {
-                    body: '- [Example](https://www.example.com/)',
-                    position: 'before:License',
-                    title: 'See Also'
-                }
-            ]
-        };
+  it(`adds an "See Also" section when passed an appropriate \`additionalSections\` argument using
+    a "before" position directive`, () => {
+    const config = {
+      additionalSections: [
+        {
+          body: '- [Example](https://www.example.com/)',
+          position: 'before:License',
+          title: 'See Also'
+        }
+      ]
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -586,13 +587,13 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it('documents an "MIT" software license', () => {
-        const config = { pkg: { license: 'MIT' } };
+  it('documents an "MIT" software license', () => {
+    const config = { pkg: { license: 'MIT' } };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -614,18 +615,18 @@ describe('readme-md', () => {
             The MIT License. See the license file for details.
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it('documents and linkifies an "MIT" software license', () => {
-        const config = {
-            licenseLink: 'LICENSE',
-            pkg: {
-                license: 'MIT'
-            }
-        };
+  it('documents and linkifies an "MIT" software license', () => {
+    const config = {
+      licenseLink: 'LICENSE',
+      pkg: {
+        license: 'MIT'
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -647,18 +648,19 @@ describe('readme-md', () => {
             The MIT License. See the [license file](LICENSE) for details.
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it('documents and linkifies an "MIT" software license automatically when `config.licenseLink` is defined as `true`', () => {
-        const config = {
-            licenseLink: true,
-            pkg: {
-                license: 'MIT'
-            }
-        };
+  it('documents and linkifies an "MIT" software license automatically when `config.licenseLink`' +
+    ' is defined as `true`', () => {
+    const config = {
+      licenseLink: true,
+      pkg: {
+        license: 'MIT'
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -680,21 +682,21 @@ describe('readme-md', () => {
             The MIT License. See the [license file](LICENSE) for details.
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it('overrides the "License" section when provided the appropriate config', () => {
-        const config = {
-            licenseLink: 'LICENSE',
-            pkg: {
-                license: 'MIT'
-            },
-            sectionOverrides: {
-                license: 'Licensed under the NOT A REAL LICENSE license.'
-            }
-        };
+  it('overrides the "License" section when provided the appropriate config', () => {
+    const config = {
+      licenseLink: 'LICENSE',
+      pkg: {
+        license: 'MIT'
+      },
+      sectionOverrides: {
+        license: 'Licensed under the NOT A REAL LICENSE license.'
+      }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -716,13 +718,13 @@ describe('readme-md', () => {
             Licensed under the NOT A REAL LICENSE license.
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it('documents an "UNLICENSED" software license differently than a SPDX license', () => {
-        const config = { pkg: { license: 'UNLICENSED' } };
+  it('documents an "UNLICENSED" software license differently than a SPDX license', () => {
+    const config = { pkg: { license: 'UNLICENSED' } };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -744,15 +746,15 @@ describe('readme-md', () => {
             This is unlicensed proprietary software.
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 
-    it('displays a hero image when one is specified', () => {
-        const config = {
-            heroImage: { alt: 'Example', src: 'path/to/image.gif' }
-        };
+  it('displays a hero image when one is specified', () => {
+    const config = {
+      heroImage: { alt: 'Example', src: 'path/to/image.gif' }
+    };
 
-        const fixture = stripIndents`
+    const fixture = stripIndents`
             &lt;package-name&gt;
             ====================
             _To be documented._
@@ -776,6 +778,6 @@ describe('readme-md', () => {
             _To be documented._
         `;
 
-        expect(readme(config)).toEqual(fixture);
-    });
+    expect(readme(config)).toEqual(fixture);
+  });
 });

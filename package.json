@@ -23,25 +23,22 @@
   "author": "James Benner <james.benner@gmail.com> (https://www.jamesbenner.com/)",
   "type": "module",
   "exports": {
-    "require": {
-      "types": "./dist/cjs/index.d.ts",
-      "default": "./dist/cjs/index.js"
-    },
     "import": {
-      "types": "./lib/index.d.ts",
-      "default": "./lib/index.js"
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/esm/index.js"
+    },
+    "require": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/cjs/index.js"
     }
-  },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
   },
   "files": [
     "dist",
-    "lib"
+    "CHANGELOG.md"
   ],
   "scripts": {
     "act": "node ./scripts/act.js",
+    "attw": "attw --ignore-rules false-esm",
     "prebuild": "pnpm run clean",
     "build": "node ./scripts/build.js",
     "clean": "rimraf dist",
@@ -56,31 +53,30 @@
   "dependencies": {
     "camelcase": "^8.0.0",
     "md-writer": "^1.1.0",
-    "type-fest": "^5.0.1"
+    "type-fest": "^5.1.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
     "@eslint/compat": "^1.2.3",
     "@eslint/js": "^9.15.0",
+    "@eslint/json": "^0.13.2",
+    "@eslint/markdown": "^7.4.0",
+    "@radham/eslint-config": "^7.0.0",
     "@types/common-tags": "^1.8.4",
     "@vitest/coverage-v8": "^3.2.4",
     "chalk": "^5.3.0",
     "command-exists": "^1.2.9",
     "common-tags": "^1.8.2",
-    "esbuild": "0.25.10",
+    "esbuild": "0.25.11",
     "eslint": "^9.37.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
     "execa": "^9.5.1",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.3",
+    "lint-staged": "^16.2.4",
     "log-symbols": "^7.0.0",
-    "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "sort-package-json": "^3.4.0",
-    "typescript": "^5.6.2",
-    "typescript-eslint": "^8.15.0",
+    "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
   "packageManager": "pnpm@10.18.2",

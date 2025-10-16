@@ -1,32 +1,31 @@
-import * as esbuild from 'esbuild';
-import { fileURLToPath } from 'node:url';
+import esbuild from 'esbuild';
+import { $ } from 'execa';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const cjsPath = path.resolve(__dirname, '..', 'dist', 'cjs');
-const libPath = path.resolve(__dirname, '..', 'lib');
+const cjsPath = path.join('dist', 'cjs');
+const entryPoints = [path.join('src', 'index.ts')];
+const esmPath = path.join('dist', 'esm');
+const commonBuildOptions = { bundle: true, entryPoints, minify: true, sourcemap: true };
 
 async function buildCjs() {
-    const entryPoints = [path.join(libPath, 'index.js')];
+  await esbuild.build({ ...commonBuildOptions, format: 'cjs', outdir: cjsPath });
 
-    await esbuild.build({ bundle: true, entryPoints, format: 'cjs', outdir: cjsPath, platform: 'node' });
+  const cjsPackageJson = JSON.stringify({ type: 'commonjs' }, null, 2);
 
-    const cjsPackageJson = JSON.stringify({ type: 'commonjs' }, null, 2);
-
-    await fs.writeFile(path.join(cjsPath, 'package.json'), cjsPackageJson);
+  await fs.writeFile(path.join(cjsPath, 'package.json'), cjsPackageJson);
 }
 
-async function copyTypes() {
-    const files = await fs.readdir(libPath);
-    const types = files.filter((file) => file.endsWith('.d.ts'));
+async function buildEsm() {
+  await esbuild.build({ ...commonBuildOptions, format: 'esm', outdir: esmPath });
 
-    await Promise.all(types.map((type) => fs.cp(path.join(libPath, type), path.join(cjsPath, type))));
+  const esmPackageJson = JSON.stringify({ type: 'module' }, null, 2);
+
+  await fs.writeFile(path.join(esmPath, 'package.json'), esmPackageJson);
 }
 
-await fs.mkdir(cjsPath, { recursive: true });
+async function buildTypes() {
+  await $`tsc`;
+}
 
-await buildCjs();
-
-await copyTypes();
+await Promise.all([buildCjs(), buildEsm(), buildTypes()]);
