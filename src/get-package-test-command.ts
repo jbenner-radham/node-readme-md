@@ -1,12 +1,10 @@
+import type { ReadmeConfig } from './types.js';
 import getPackageManager from './get-package-manager.js';
 
 /**
  * Get the appropriate package test command.
- *
- * @param {import('./index.d.ts').ReadmeConfig} [config = {}]
- * @returns {string}
  */
-export default function getPackageTestCommand(config = {}) {
+export default function getPackageTestCommand(config: ReadmeConfig = {}): string {
     const { pkg = {}, preferNpm = false } = config;
     const packageManager = getPackageManager(pkg);
     const npmTestCmd = 'npm test';

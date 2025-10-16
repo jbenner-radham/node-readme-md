@@ -23,25 +23,22 @@
   "author": "James Benner <james.benner@gmail.com> (https://www.jamesbenner.com/)",
   "type": "module",
   "exports": {
-    "require": {
-      "types": "./dist/cjs/index.d.ts",
-      "default": "./dist/cjs/index.js"
-    },
     "import": {
-      "types": "./lib/index.d.ts",
-      "default": "./lib/index.js"
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/esm/index.js"
+    },
+    "require": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/cjs/index.js"
     }
-  },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
   },
   "files": [
     "dist",
-    "lib"
+    "CHANGELOG.md"
   ],
   "scripts": {
     "act": "node ./scripts/act.js",
+    "attw": "attw --ignore-rules false-esm",
     "prebuild": "pnpm run clean",
     "build": "node ./scripts/build.js",
     "clean": "rimraf dist",
@@ -79,7 +76,7 @@
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "sort-package-json": "^3.4.0",
-    "typescript": "^5.6.2",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.15.0",
     "vitest": "^3.2.4"
   },

@@ -1,12 +1,10 @@
 import getPackageManager from './get-package-manager.js';
+import type { ReadmeConfig } from './types.js';
 
 /**
  * Get the appropriate package install command.
- *
- * @param {import('./index.d.ts').ReadmeConfig} [config = {}]
- * @returns {string}
  */
-export default function getPackageInstallCommand(config = {}) {
+export default function getPackageInstallCommand(config: ReadmeConfig = {}): string {
     const { pkg = {}, preferDev = false, preferNpm = false } = config;
     const packageManager = getPackageManager(pkg);
     const npmInstallCmd = `npm install ${pkg.name}`;

@@ -1,13 +1,11 @@
 import { LF, h2 } from 'md-writer';
+import type { PositionDirective, ReadmeSection } from './types.js';
 
-export default class ReadmeSections extends Array {
+export default class ReadmeSections extends Array<ReadmeSection> {
     /**
      * Get the position index for a section from a number or position directive.
-     *
-     * @param {number | import('./index.d.ts').PositionDirective} position
-     * @returns {number}
      */
-    getPositionIndex(position) {
+    getPositionIndex(position: number | PositionDirective): number {
         if (typeof position === 'number') {
             if (Number.isNaN(position)) {
                 console.warn('The provided position is `NaN`, it should be an integer, float, or `PositionDirective`.');
@@ -50,11 +48,8 @@ export default class ReadmeSections extends Array {
 
     /**
      * Get the position index for a section from the section title.
-     *
-     * @param {string} [title='']
-     * @returns {number}
      */
-    getSectionIndex(title = '') {
+    getSectionIndex(title = ''): number {
         const sectionIndex = this.reduce((accumulator, sectionPair, index) => {
             const [header] = sectionPair;
 
@@ -68,10 +63,8 @@ export default class ReadmeSections extends Array {
 
     /**
      * Returns a string representation of the readme.
-     *
-     * @returns {string}
      */
-    toString() {
+    toString(): string {
         return this.map((headerBodyPair) => headerBodyPair.join(LF)).join(`${LF}${LF}`);
     }
 }

@@ -1,12 +1,11 @@
 import { LF } from 'md-writer';
+import type { Badge } from './types.js';
 
-export default class Badges extends Array {
+export default class Badges extends Array<Badge> {
     /**
      * Return a string representation of the badges.
-     *
-     * @returns {string}
      */
-    toString() {
+    toString(): string {
         return (
             this.map((badge) => {
                 return `[![${badge.alt}](${badge.image})](${badge.link})`;

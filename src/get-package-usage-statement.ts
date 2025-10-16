@@ -1,14 +1,14 @@
+import type { ReadmeConfig } from './types.js';
 import camelCase from 'camelcase';
 import getPackageBasename from './get-package-basename.js';
 
 /**
  * Get either a `require` or `import` statement for the "Usage" section of the README.
- *
- * @param {import('./index.d.ts').ReadmeConfig} [config = {}]
- * @returns {string}
  */
-export default function getPackageUsageStatement(config = {}) {
-    const getQuoteChar = (quoteType) => {
+export default function getPackageUsageStatement(config: ReadmeConfig = {}): string {
+    type QuoteChar = '`' | '"' | "'";
+
+    const getQuoteChar = (quoteType: 'backtick' | 'double' | 'single'): QuoteChar => {
         switch (quoteType) {
             case 'backtick':
                 return '`';

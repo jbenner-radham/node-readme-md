@@ -7,17 +7,15 @@ import licenseBody from './license-body.js';
 import linkifyLicense from './linkify-license.js';
 import { PLACEHOLDER } from './constants.js';
 import ReadmeSections from './ReadmeSections.js';
+import type { ReadmeConfig } from './types.js';
 
 /**
  * Generates a readme document based upon the provided config.
- *
- * @param {import('./index.d.ts').ReadmeConfig} [config={}]
- * @returns {string}
  */
-export default function readme(config = {}) {
+export default function readme(config: ReadmeConfig = {}): string {
     const additionalSections = config?.additionalSections ?? [];
     const badges = new Badges(...(config.badges || [])).toString();
-    const pkgDefaults = { description: PLACEHOLDER, name: '&lt;package-name&gt;' };
+    const pkgDefaults: Record<string, string> = { description: PLACEHOLDER, name: '&lt;package-name&gt;' };
     const pkg = Object.assign({}, pkgDefaults, config.pkg);
     const preferDev = config?.preferDev ?? false;
     const preferGlobal = pkg?.preferGlobal && preferDev === false;
@@ -25,7 +23,7 @@ export default function readme(config = {}) {
     const pkgInstallCmd = getPackageInstallCommand({ ...config, pkg });
     const sectionOverrides = config.sectionOverrides ?? {};
 
-    const isDefault = (property) => pkg[property] === pkgDefaults[property];
+    const isDefault = (property: string) => pkg[property] === pkgDefaults[property];
 
     const pkgUsageStatement = !isDefault('name') ? getPackageUsageStatement(config) : '';
 
@@ -42,7 +40,7 @@ export default function readme(config = {}) {
 
     const heroImage = config.heroImage ? `![${config.heroImage.alt}](${config.heroImage.src})` : '';
 
-    const identity = (value) => value;
+    const identity = <T>(value: T): T => value;
 
     const readmeSections = new ReadmeSections(
         [h1(pkg.name), [badges, pkg.description, heroImage].filter(identity).join(`${LF}${LF}`)],
@@ -53,6 +51,8 @@ export default function readme(config = {}) {
     );
 
     additionalSections.forEach((section) => {
+        if (typeof section.position === 'undefined') return;
+
         const positionIndex = readmeSections.getPositionIndex(section.position);
         const position = Number.isNaN(positionIndex) ? readmeSections.length : positionIndex;
         const deleteCount = 0;
@@ -63,3 +63,15 @@ export default function readme(config = {}) {
 
     return readmeSections.toString();
 }
+
+export { default as Badges } from './Badges.js';
+export { DEFAULT_LICENSE_FILENAME, PLACEHOLDER } from './constants.js';
+export { default as getPackageBasename } from './get-package-basename.js';
+export { default as getPackageInstallCommand } from './get-package-install-command.js';
+export { default as getPackageManager } from './get-package-manager.js';
+export { default as getPackageTestCommand } from './get-package-test-command.js';
+export { default as getPackageUsageStatement } from './get-package-usage-statement.js';
+export { default as licenseBody } from './license-body.js';
+export { default as linkifyLicense } from './linkify-license.js';
+export { default as ReadmeSections } from './ReadmeSections.js';
+export * from './types.js';

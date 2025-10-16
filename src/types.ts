@@ -1,16 +1,5 @@
 import type { PackageJson } from 'type-fest';
 
-export type { default as Badges } from './Badges.d.ts';
-export type { DEFAULT_LICENSE_FILENAME, PLACEHOLDER } from './constants.d.ts';
-export type { default as getPackageBasename } from './get-package-basename.d.ts';
-export type { default as getPackageInstallCommand } from './get-package-install-command.d.ts';
-export type { default as getPackageManager, PackageManager } from './get-package-manager.d.ts';
-export type { default as getPackageTestCommand } from './get-package-test-command.d.ts';
-export type { default as getPackageUsageStatement } from './get-package-usage-statement.d.ts';
-export type { default as licenseBody } from './license-body.d.ts';
-export type { default as linkifyLicense } from './linkify-license.d.ts';
-export type { default as ReadmeSections, ReadmeSection } from './ReadmeSections.d.ts';
-
 export interface Badge {
     /**
      * The image alt tag.
@@ -39,6 +28,11 @@ export interface HeroImage {
      */
     src: string;
 }
+
+/**
+ * The supported package managers.
+ */
+export type PackageManager = 'npm' | 'pnpm' | 'yarn';
 
 /**
  * A `PositionDirective` is a string which begins with either "before:" or
@@ -92,6 +86,11 @@ export interface SectionOverrides {
      */
     license?: string;
 }
+
+/**
+ * A header and body pair used to represent a section.
+ */
+export type ReadmeSection = [header: string, body: string];
 
 export interface ReadmeConfig {
     /**
@@ -153,8 +152,3 @@ export interface ReadmeConfig {
      */
     sectionOverrides?: SectionOverrides;
 }
-
-/**
- * Generates a readme document based upon the provided config.
- */
-export default function readme(config?: ReadmeConfig): string;

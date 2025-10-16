@@ -1,6 +1,7 @@
-import readme from '../lib/index.js';
+import readme from '../src/index.js';
 import { stripIndents } from 'common-tags';
 import { describe, expect, it } from 'vitest';
+import type { ReadmeConfig } from '../src/types.js';
 
 describe('readme-md', () => {
     it('is a function', () => {
@@ -72,8 +73,7 @@ describe('readme-md', () => {
     });
 
     it('generates a titled README with placeholders and an `import` statement in the "Usage" section', () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
+        const config: ReadmeConfig = {
             pkg: {
                 name: 'awesome-package',
                 type: 'module'
@@ -217,7 +217,6 @@ describe('readme-md', () => {
 
     it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\` and
         \`pkg.engines.yarn\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 engines: {
@@ -258,8 +257,7 @@ describe('readme-md', () => {
 
     it(`generates a titled README with variant placeholders if passed an object with \`pkg.name\`, \`pkg.type\`,
         \`pkg.scripts.test\`, and \`pkg.engines.pnpm\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
-        const config = {
+        const config: ReadmeConfig = {
             pkg: {
                 engines: {
                     pnpm: '*'
@@ -305,7 +303,6 @@ describe('readme-md', () => {
 
     it(`generates a titled README with variant placeholders and a global install if passed an object with \`pkg.name\`,
         \`pkg.preferGlobal\`, and \`pkg.engines.yarn\` properties`, () => {
-        /** @var {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 engines: {
@@ -385,7 +382,6 @@ describe('readme-md', () => {
 
     it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
         \`pkg.scripts.test\`, and \`pkg.engines.yarn\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 engines: { yarn: '1.x' },
@@ -427,7 +423,6 @@ describe('readme-md', () => {
 
     it(`generates a titled README with variant placeholders and testing command if passed an object with \`pkg.name\`,
         \`pkg.scripts.test\`, and \`pkg.packageManager\` properties`, () => {
-        /** @type {import('../lib/index.d.ts').ReadmeConfig} */
         const config = {
             pkg: {
                 name: 'awesome-package',
