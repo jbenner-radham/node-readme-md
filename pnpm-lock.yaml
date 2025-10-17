@@ -51,6 +51,9 @@ importers:
       common-tags:
         specifier: ^1.8.2
         version: 1.8.2
+      duo-build:
+        specifier: ^0.1.1
+        version: 0.1.1
       esbuild:
         specifier: 0.25.11
         version: 0.25.11
@@ -860,6 +863,11 @@ packages:
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
 
+  duo-build@0.1.1:
+    resolution: {integrity: sha512-TltydZD+kzeFCnrRg+22jk5ux6Z5hHIIymING3xUsz9nERUv5MoGfRn5/uMlyD2p+bgtMMLqaPWeSSBHTrtZlQ==}
+    engines: {node: '>=22'}
+    hasBin: true
+
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
@@ -1296,6 +1304,10 @@ packages:
 
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
+
+  meow@14.0.0:
+    resolution: {integrity: sha512-JhC3R1f6dbspVtmF3vKjAWz1EVIvwFrGGPLSdU6rK79xBwHWTuHoLnRX/t1/zHS1Ch1Y2UtIrih7DAHuH9JFJA==}
+    engines: {node: '>=20'}
 
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
@@ -2597,6 +2609,13 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
+  duo-build@0.1.1:
+    dependencies:
+      esbuild: 0.25.11
+      execa: 9.6.0
+      meow: 14.0.0
+      typescript: 5.9.3
+
   eastasianwidth@0.2.0: {}
 
   emoji-regex@10.6.0: {}
@@ -3141,6 +3160,8 @@ snapshots:
   mdast-util-to-string@4.0.0:
     dependencies:
       '@types/mdast': 4.0.4
+
+  meow@14.0.0: {}
 
   merge2@1.4.1: {}
 
